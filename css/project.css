@@ -1,0 +1,21 @@
+#project {
+	padding: 30px;
+}
+#project h2 {
+	font-size: 24px;
+	color: black;
+}
+#project hr {
+	margin:10px 0 10px 0;
+	border-top: 5px solid #747474;
+}
+.project {
+	margin-top: 20px;
+	min-height: 310px;
+}
+.minh{
+	min-height: 310px;
+}
+.project .pull-left img{
+	max-width: 145px;
+}

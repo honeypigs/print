@@ -1,0 +1,20 @@
+.question a {
+	font-size: 18px;
+	font-weight:bold;
+}
+
+.content {
+	font-weight: bold;
+	width: 100%;
+	text-indent: 28px;
+	padding: 20px;
+	background-color: #f5f5f5;
+}
+.content p{
+	font-weight: normal;
+}
+.question a span{
+	float: right;
+	font-size: 14px;
+	font-weight:bold;
+}

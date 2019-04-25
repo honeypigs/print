@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>关于我们</title>
+	
+	<!-- core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/contact.css">
+	
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+</head><!--/head-->
+
+<body>
+
+    <header id="header">
+        <nav class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+                </div>
+				
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="about-us.html">关于我们</a></li>
+                        <li class="dropdown">
+                            <a href="project.html" class="dropdown-toggle" data-toggle="project.html">产品中心<i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="project.html#diy">DIY桌面级3D打印机</a></li>
+                                <li><a href="project.html#edu">教育类智能3D打印机</a></li>
+                                <li><a href="project.html#ind">工业级智能3D打印机</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="accessory.html" class="dropdown-toggle" data-toggle="accessory.html">配件及耗材<i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="accessory.html#1">打印机配件</a></li>
+                                <li><a href="accessory.html#2">打印机耗材</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="services.html" class="dropdown-toggle" data-toggle="services.html">服务支持<i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="services.html#models">模型库</a></li>
+                                <li><a href="services.html#software">软件下载</a></li>
+                                <li><a href="services.html#files">文件下载</a></li>
+                                <li><a href="services.html#ques">常见问题</a></li>
+
+                            </ul>
+                        </li>
+                        <li><a href="sell.html">销售网络</a></li> 
+                        <li class="active"><a href="contact-us.html">联系我们</a></li>                        
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+	</header><!--/header-->
+
+    <section id="about-us">
+        <div class="container">
+        	<div class="center wow fadeInDown">
+				<h2>人才招聘</h2>
+				<p class="lead">深圳创宏智控技术有限公司是由博士、博士后和硕士研究生为技术骨干的年轻创业团队于2017年成立的高科技企业。公司致力于建设智能三维成型数字化生态系统，业务领域涉及3D打印机的研发、制造、销售和服务，3D打印耗材及周边配件、3D打印教育培训和服务、3D打印一体化服务等。目前在3D建模软件、3D打印切片软件、STEAM教育与3D数字化技术教育方法、图形化变成软件等方面积累了丰富的技术经验，并与哈尔滨工业大学、清华大学等高校形成产学研合作关系。公司成立自今各项业务均有条不紊的展开，根据业务扩展的需要，现面向全球诚招代理商，诚挚邀请行业同仁共同发展共享发展宏利。</p>
+			</div>
+
+			<div class="center wow fadeInDown">
+				<h2>售前服务</h2>
+				<p class="lead">010-10010010</p>
+			</div>
+			
+			
+			<div class="center wow fadeInDown">
+				<h2>售后服务</h2>
+				<p class="lead">020-10010010</p>
+			</div>
+				
+            <div class="center wow fadeInDown end">
+                <h2>在线留言</h2>
+            </div>
+            <div id="comment">
+                <commemt-content v-bind:comment="comment" v-on:change="changCommmer"></commemt-content>
+                <comment-textarea v-bind:type="type" v-bind:name="oldComment" v-on:submit="addComment" v-on:canel="canelCommit"></comment-textarea>
+            </div>
+		</div><!--/.container-->
+    </section><!--/about-us-->
+
+    <section id="bottom">
+        <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget">
+                        <h3>公司信息</h3>
+                        <ul>
+                            <li><a href="index.html">首页</a></li>
+                            <li><a href="about-us.html">关于我们</a></li>
+                        </ul>
+                    </div>    
+                </div><!--/.col-md-3-->
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget">
+                        <h3>产品中心</h3>
+                        <ul>
+                            <li><a href="project.html#diy">DIY桌面级3D打印机</a></li>
+                            <li><a href="project.html#edu">教育类智能3D打印机</a></li>
+                            <li><a href="project.html#ind">工业级智能3D打印机</a></li>
+                        </ul>
+                    </div>    
+                </div><!--/.col-md-3-->
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget">
+                        <h3>配件及耗材</h3>
+                        <ul>
+                            <li><a href="accessory.html#1">打印机配件</a></li>
+                            <li><a href="accessory.html#2">打印机耗材</a></li>   
+                        </ul>
+                    </div>    
+                </div><!--/.col-md-3-->
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget">
+                        <h3>服务支持</h3>
+                        <ul>
+                            <li><a href="services.html#models">模型库</a></li>
+                            <li><a href="services.html#software">软件下载</a></li>
+                            <li><a href="services.html#files">文件下载</a></li>
+                            <li><a href="services.html#ques">常见问题</a></li>
+                        </ul>
+                    </div>    
+                </div><!--/.col-md-3-->
+            </div>
+        </div>
+    </section><!--/#bottom-->
+
+    <footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2018. 邮箱：314827188@qq.com
+                </div>
+                <div class="col-sm-6">
+                    <ul class="pull-right">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="about-us.html">关于我们</a></li>
+                        <li><a href="sell.html">销售网络</a></li>
+                        <li><a href="contact-us.html">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+    
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>

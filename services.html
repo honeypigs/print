@@ -1,0 +1,201 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>服务支持</title>
+    
+    <!-- core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/project.css">
+    <link rel="stylesheet" type="text/css" href="css/service.css">
+    
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+</head><!--/head-->
+
+<body>
+
+    <header id="header">
+
+        <nav class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+                </div>
+                
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="about-us.html">关于我们</a></li>
+                        <li class="dropdown">
+                            <a href="project.html" class="dropdown-toggle" data-toggle="project.html">产品中心<i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="project.html#diy">DIY桌面级3D打印机</a></li>
+                                <li><a href="project.html#edu">教育类智能3D打印机</a></li>
+                                <li><a href="project.html#ind">工业级智能3D打印机</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="accessory.html" class="dropdown-toggle" data-toggle="accessory.html">配件及耗材<i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="accessory.html#1">打印机配件</a></li>
+                                <li><a href="accessory.html#2">打印机耗材</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown active">
+                            <a href="services.html" class="dropdown-toggle" data-toggle="services.html">服务支持<i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="services.html#models">模型库</a></li>
+                                <li><a href="services.html#software">软件下载</a></li>
+                                <li><a href="services.html#files">文件下载</a></li>
+                                <li><a href="services.html#ques">常见问题</a></li>
+
+                            </ul>
+                        </li>
+                        <li><a href="sell.html">销售网络</a></li> 
+                        <li><a href="contact-us.html">联系我们</a></li>                        
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+    </header><!--/header-->
+
+    <section id="project">
+        <div class="container" id="models" v-for="site in data">
+            <div class="left wow fadeInDown">
+                <h2>{{message}}</h2>
+                <hr>
+            </div>
+            <div class="col-xs-6 col-md-3">
+                <a :href="site.link" class="thumbnail">
+                    <img :src="site.img" alt="...">
+                </a>
+            </div>
+        </div>
+        <div class="container" id="software" v-for="site in data">
+            <div class="left wow fadeInDown">
+                <h2>软件下载</h2>
+                <hr>
+            </div>
+            <div class="list-group">
+                <a :href="site.link" class="list-group-item">{{site.filename}}</a>
+            </div>
+        </div>
+        <div class="container" id="files" v-for="site in data">
+            <div class="left wow fadeInDown">
+                <h2>文件下载</h2>
+                <hr>
+            </div>
+            <div class="list-group">
+                <a href="site.link" class="list-group-item">{{site.filename}}</a>
+            </div>
+        </div>
+        <div class="container" id="ques">
+            <div class="left wow fadeInDown">
+                <h2>常见问题</h2>
+                <hr>
+            </div>
+            <div class="list-group" v-for="site in data">
+                <div class="question">
+                    <a href="javascript:void(0)" class="list-group-item" :id="site.id">问题：{{site.title}} <span>创建于{{formatDate(new Date(site.created_at*1000),"yyyy-M-d h:m")}}</span></a>
+                    <div class="content">解决方法：<p v-html="site.content"></p></div>
+                </div>
+                
+            </div>
+        </div>
+                
+    </section>
+
+    <section id="bottom">
+        <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget">
+                        <h3>公司信息</h3>
+                        <ul>
+                            <li><a href="index.html">首页</a></li>
+                            <li><a href="about-us.html">关于我们</a></li>
+                        </ul>
+                    </div>    
+                </div><!--/.col-md-3-->
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget">
+                        <h3>产品中心</h3>
+                        <ul>
+                            <li><a href="project.html#diy">DIY桌面级3D打印机</a></li>
+                            <li><a href="project.html#edu">教育类智能3D打印机</a></li>
+                            <li><a href="project.html#ind">工业级智能3D打印机</a></li>
+                        </ul>
+                    </div>    
+                </div><!--/.col-md-3-->
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget">
+                        <h3>配件及耗材</h3>
+                        <ul>
+                            <li><a href="accessory.html#1">打印机配件</a></li>
+                            <li><a href="accessory.html#2">打印机耗材</a></li>   
+                        </ul>
+                    </div>    
+                </div><!--/.col-md-3-->
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget">
+                        <h3>服务支持</h3>
+                        <ul>
+                            <li><a href="services.html#models">模型库</a></li>
+                            <li><a href="services.html#software">软件下载</a></li>
+                            <li><a href="services.html#files">文件下载</a></li>
+                            <li><a href="services.html#ques">常见问题</a></li>
+                        </ul>
+                    </div>    
+                </div><!--/.col-md-3-->
+            </div>
+        </div>
+    </section><!--/#bottom-->
+
+    <footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2018. 邮箱：314827188@qq.com
+                </div>
+                <div class="col-sm-6">
+                    <ul class="pull-right">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="about-us.html">关于我们</a></li>
+                        <li><a href="sell.html">销售网络</a></li>
+                        <li><a href="contact-us.html">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/services.js"></script>
+</body>
+</html>
