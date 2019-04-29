@@ -82,38 +82,42 @@
                 <h2>{{catalog}}</h2>
                 <hr>
             </div>
-            <!-- <div class="col-md-4 col-sm-6 project"> 
-                <div class="single-profile-bottom wow fadeInUp minh" data-wow-duration="1000ms" data-wow-delay="600ms">
-                    <div class="media">
-                        <div class="pull-left">
-                            <a href="#"><img class="media-object"  v-on:click="detail" v-bind:id="site.id" src="images/T1A.jpg" alt=""></a>
+            <div v-for="site in list">
+                <div class="col-md-4 col-sm-6 project"> 
+                    <div class="single-profile-bottom wow fadeInUp minh" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="media">
+                            <div class="pull-left">
+                                <a href="#"><img class="media-object"  v-on:click="detail" v-bind:id="site.id" :src="site.img" alt=""></a>
+                            </div>
+                            <div class="media-body">
+                                <h4>{{site.name}}</h4>
+                            </div>
                         </div>
-                        <div class="media-body">
-                            <h4>{{site.name}}</h4>
-                        </div>
+                        <p>全DIY型3D打印，进程送料，兼容多种耗材亚克力框架式、先进结构设计，噪音低优化插补控制算法，减低运动噪音加热管掉落保护，安全有保障多重过流保护、ESD防护、抗浪涌冲击优化热床设计、保证打印尺寸
+                        </p>
                     </div>
-                    <p>全DIY型3D打印，进程送料，兼容多种耗材亚克力框架式、先进结构设计，噪音低优化插补控制算法，减低运动噪音加热管掉落保护，安全有保障多重过流保护、ESD防护、抗浪涌冲击优化热床设计、保证打印尺寸
-                    </p>
                 </div>
-            </div> -->
+            </div>
         </div>
         <div class="container" id="two" v-for="site in list">
             <div class="left wow fadeInDown">
                 <h2>{{catalog}}</h2>
                 <hr>
             </div>
-            <div class="col-md-4 col-sm-6 project"> 
-                <div class="single-profile-bottom wow fadeInUp minh" data-wow-duration="1000ms" data-wow-delay="600ms">
-                    <div class="media">
-                        <div class="pull-left">
-                            <a href="#"><img class="media-object"  v-on:click="detail" v-bind:id="site.id" :src="site.img" alt=""></a>
+            <div v-for="site in list">
+                <div class="col-md-4 col-sm-6 project"> 
+                    <div class="single-profile-bottom wow fadeInUp minh" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="media">
+                            <div class="pull-left">
+                                <a href="#"><img class="media-object"  v-on:click="detail" v-bind:id="site.id" :src="site.img" alt=""></a>
+                            </div>
+                            <div class="media-body">
+                                <h4>{{site.name}}</h4>
+                            </div>
                         </div>
-                        <div class="media-body">
-                            <h4>{{site.name}}</h4>
-                        </div>
+                        <p>全DIY型3D打印，进程送料，兼容多种耗材亚克力框架式、先进结构设计，噪音低优化插补控制算法，减低运动噪音加热管掉落保护，安全有保障多重过流保护、ESD防护、抗浪涌冲击优化热床设计、保证打印尺寸
+                        </p>
                     </div>
-                    <p>全DIY型3D打印，进程送料，兼容多种耗材亚克力框架式、先进结构设计，噪音低优化插补控制算法，减低运动噪音加热管掉落保护，安全有保障多重过流保护、ESD防护、抗浪涌冲击优化热床设计、保证打印尺寸
-                    </p>
                 </div>
             </div>
         </div>
