@@ -18,8 +18,6 @@ function formatDate (date, fmt) {
 	return fmt;
 };
 
-console.log(formatDate(new Date(1554046320000),"yyyy-M-d h:m"));
-
 function padLeftZero (str) {
 	return ('00' + str).substr(str.length);
 };
@@ -50,9 +48,25 @@ $.get("http://api.tronhoo3d.com/files",function (res) {
 
 $.get("http://api.tronhoo3d.com/questions",function (res) {
 	var qData = res;
-	var file = new Vue({
+	var ques = new Vue({
 		el: "#ques",
 		data: qData
 	})
 })
+$.get("http://api.tronhoo3d.com/information",function (res) {
+	var nData = res;
+	var news = new Vue({
+		el: "#news",
+		data: nData
+	})
+})
 
+
+function show(event) {
+	if(event.target.nextElementSibling.className == "content") {
+		event.target.nextElementSibling.className = "contents";
+	}else {
+		event.target.nextElementSibling.className = "content";
+	}
+	
+}

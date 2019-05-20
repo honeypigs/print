@@ -48,6 +48,7 @@
                                 <li><a href="project.html#diy">DIY桌面级3D打印机</a></li>
                                 <li><a href="project.html#edu">教育类智能3D打印机</a></li>
                                 <li><a href="project.html#ind">工业级智能3D打印机</a></li>
+                                <li><a href="project.html#stm">Steam教育方案</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -64,7 +65,7 @@
                                 <li><a href="services.html#software">软件下载</a></li>
                                 <li><a href="services.html#files">文件下载</a></li>
                                 <li><a href="services.html#ques">常见问题</a></li>
-
+                                <li><a href="services.html#news">3D打印机资讯</a></li>
                             </ul>
                         </li>
                         <li><a href="sell.html">销售网络</a></li> 
@@ -77,13 +78,16 @@
 
     <section id="project">
     	<div class="container" id="diy">
-    		<div class="left wow fadeInDown">
+    		<div class="left">
 				<h2>{{catalog}}</h2>
+                <ol id="diyl" class="breadcrumb">
+                    <li v-for="item in list"><a v-bind:index="item.id" href="javascript:void(0);" onclick="lo(event)">{{item.name}}</a></li>
+                </ol>
 			 <hr>
             </div>
             <div v-for="site in list">
                 <div class="col-md-4 col-sm-6 project"> 
-                    <div class="single-profile-bottom wow fadeInUp minh" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="single-profile-bottom" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="media">
                             <div class="pull-left">
                                 <a href="#"><img class="media-object"  v-on:click="detail" v-bind:id="site.id" :src="site.img" alt=""></a>
@@ -92,21 +96,23 @@
                                 <h4>{{site.name}}</h4>
                             </div>
                         </div>
-                        <p>全DIY型3D打印，进程送料，兼容多种耗材亚克力框架式、先进结构设计，噪音低优化插补控制算法，减低运动噪音加热管掉落保护，安全有保障多重过流保护、ESD防护、抗浪涌冲击优化热床设计、保证打印尺寸
-                        </p>
+                        <p>{{site.brief}}</p>
                     </div>
                 </div>
             </div>
 			
     	</div>
     	<div class="container" id="edu">
-	    	<div class="left wow fadeInDown">
+	    	<div class="left">
 				<h2>{{catalog}}</h2>
+                <ol id="edul" class="breadcrumb">
+                    <li v-for="item in list"><a v-bind:index="item.id" href="javascript:void(0);" onclick="lo(event)>{{item.name}}</a></li>
+                </ol>
 				<hr>
 			</div>
             <div v-for="site in list">
                 <div class="col-md-4 col-sm-6 project"> 
-                    <div class="single-profile-bottom wow fadeInUp minh" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="single-profile-bottom" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="media">
                             <div class="pull-left">
                                 <a href="#"><img class="media-object"  v-on:click="detail" v-bind:id="site.id" src="images/T1A.jpg" alt=""></a>
@@ -115,20 +121,22 @@
                                 <h4>{{site.name}}</h4>
                             </div>
                         </div>
-                        <p>全DIY型3D打印，进程送料，兼容多种耗材亚克力框架式、先进结构设计，噪音低优化插补控制算法，减低运动噪音加热管掉落保护，安全有保障多重过流保护、ESD防护、抗浪涌冲击优化热床设计、保证打印尺寸
-                        </p>
+                        <p>{{site.brief}}</p>
                     </div>
                 </div>
             </div>
 		</div>
 		<div class="container" id="ind">
-			<div class="left wow fadeInDown">
+			<div class="left">
 				<h2>{{catalog}}</h2>
+                <ol id="indl" class="breadcrumb">
+                    <li v-for="item in list"><a v-bind:index="item.id" href="javascript:void(0);" onclick="lo(event)>{{item.name}}</a></li>
+                </ol>
 				<hr>
 			</div>
             <div v-for="site in list">
                 <div class="col-md-4 col-sm-6 project"> 
-                    <div class="single-profile-bottom wow fadeInUp minh" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="single-profile-bottom" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="media">
                             <div class="pull-left">
                                 <a href="#"><img class="media-object"  v-on:click="detail" v-bind:id="site.id" src="images/T1A.jpg" alt=""></a>
@@ -137,12 +145,35 @@
                                 <h4>{{site.name}}</h4>
                             </div>
                         </div>
-                        <p>全DIY型3D打印，进程送料，兼容多种耗材亚克力框架式、先进结构设计，噪音低优化插补控制算法，减低运动噪音加热管掉落保护，安全有保障多重过流保护、ESD防护、抗浪涌冲击优化热床设计、保证打印尺寸
-                        </p>
+                        <p>{{site.brief}}</p>
                     </div>
                 </div>
             </div>
 		</div>
+        <div class="container" id="stm">
+            <div class="left">
+                <h2>{{catalog}}</h2>
+                <ol id="stml" class="breadcrumb">
+                    <li v-for="item in list"><a v-bind:index="item.id" href="javascript:void(0);" onclick="lo(event)>{{item.name}}</a></li>
+                </ol>
+                <hr>
+            </div>
+            <div v-for="site in list">
+                <div class="col-md-4 col-sm-6 project"> 
+                    <div class="single-profile-bottom" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="media">
+                            <div class="pull-left">
+                                <a href="#"><img class="media-object"  v-on:click="detail" v-bind:id="site.id" src="images/T1A.jpg" alt=""></a>
+                            </div>
+                            <div class="media-body">
+                                <h4>{{site.name}}</h4>
+                            </div>
+                        </div>
+                        <p>{{site.brief}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <section id="bottom">
         <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
@@ -153,6 +184,8 @@
                         <ul>
                             <li><a href="index.html">首页</a></li>
                             <li><a href="about-us.html">关于我们</a></li>
+                            <li><a href="about-us.html">荣誉资质</a></li>
+                            <li><a href="about-us.html">办公环境</a></li>
                         </ul>
                     </div>    
                 </div><!--/.col-md-3-->
@@ -164,6 +197,7 @@
                             <li><a href="project.html#diy">DIY桌面级3D打印机</a></li>
                             <li><a href="project.html#edu">教育类智能3D打印机</a></li>
                             <li><a href="project.html#ind">工业级智能3D打印机</a></li>
+                            <li><a href="project.html#ind">Steam教育方案</a></li>
                         </ul>
                     </div>    
                 </div><!--/.col-md-3-->
@@ -186,6 +220,7 @@
                             <li><a href="services.html#software">软件下载</a></li>
                             <li><a href="services.html#files">文件下载</a></li>
                             <li><a href="services.html#ques">常见问题</a></li>
+                            <li><a href="services.html#ques">3D打印机资讯</a></li>
                         </ul>
                     </div>    
                 </div><!--/.col-md-3-->
@@ -197,7 +232,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    &copy; 2018. 邮箱：314827188@qq.com
+                    &copy; 2018. 业务邮箱：sales@tronhoo3d.com 联系电话：13040878915
                 </div>
                 <div class="col-sm-6">
                     <ul class="pull-right">
@@ -216,9 +251,69 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/jquery.isotope.min.js"></script>
-    <script src="js/main.js"></script>
     <script src="js/wow.min.js"></script>
     <script src="js/vue.js"></script>
-    <script src="js/project.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        window.onload = function () {
+            $.get("http://api.tronhoo3d.com/products",function (res) {
+                var data = res.data;
+                var diyData = data[1], eduData = data[2], indData = data[3],stmData = data[4]; 
+                console.log(data[4]);
+                var vmdiy = new Vue({
+                    el: "#diy",
+                    data: diyData,
+                    methods: {
+                        detail: function(event){
+                            window.location = "detail.html#" + event.target.id;
+                        }
+                    }
+                });
+                var vmedu = new Vue({
+                    el: "#edu",
+                    data: eduData,
+                    methods: {
+                        detail: function(event){
+                            window.location = "detail.html#" + event.target.id;
+                        }
+                    }
+                });
+                var vmind = new Vue({
+                    el: "#ind",
+                    data: indData,
+                    methods: {
+                        detail: function(event){
+                            window.location = "detail.html#" + event.target.id;
+                        }
+                    }
+                });
+                var vmstm = new Vue({
+                    el: "#stm",
+                    data: stmData,
+                    methods: {
+                        detail: function(event){
+                            window.location = "detail.html#" + event.target.id;
+                        }
+                    }
+                });
+                var vmdiyl = new Vue({
+                    el: "#diyl",
+                    data: diyData
+                });
+                var vmedul = new Vue({
+                    el: "#edul",
+                    data: eduData
+                });
+                var vmindl = new Vue({
+                    el: "#indl",
+                    data: indData
+                });
+                var vmstml = new Vue({
+                    el: "#stml",
+                    data: stmData
+                });
+            })
+        }
+    </script>
 </body>
 </html>

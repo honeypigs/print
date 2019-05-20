@@ -49,6 +49,7 @@
                                 <li><a href="project.html#diy">DIY桌面级3D打印机</a></li>
                                 <li><a href="project.html#edu">教育类智能3D打印机</a></li>
                                 <li><a href="project.html#ind">工业级智能3D打印机</a></li>
+                                <li><a href="project.tml#stm">Steam教育方案</a></li>
                             </ul>
                         </li>
                         <li class="dropdown active">
@@ -65,7 +66,7 @@
                                 <li><a href="services.html#software">软件下载</a></li>
                                 <li><a href="services.html#files">文件下载</a></li>
                                 <li><a href="services.html#ques">常见问题</a></li>
-
+                                <li><a href="services.html#news">3D打印机资讯</a></li>
                             </ul>
                         </li>
                         <li><a href="sell.html">销售网络</a></li> 
@@ -78,13 +79,16 @@
 
     <section id="project">
     	<div class="container" id="one" >
-            <div class="left wow fadeInDown">
+            <div class="left">
                 <h2>{{catalog}}</h2>
+                <ol id="onel" class="breadcrumb">
+                    <li v-for="item in list"><a v-bind:index="item.id" href="javascript:void(0);" onclick="lo2(event)">{{item.name}}</a></li>
+                </ol>
                 <hr>
             </div>
             <div v-for="site in list">
                 <div class="col-md-4 col-sm-6 project"> 
-                    <div class="single-profile-bottom wow fadeInUp minh" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="single-profile-bottom">
                         <div class="media">
                             <div class="pull-left">
                                 <a href="#"><img class="media-object"  v-on:click="detail" v-bind:id="site.id" :src="site.img" alt=""></a>
@@ -100,13 +104,16 @@
             </div>
         </div>
         <div class="container" id="two" v-for="site in list">
-            <div class="left wow fadeInDown">
+            <div class="left">
                 <h2>{{catalog}}</h2>
+                <ol id="twol" class="breadcrumb">
+                    <li v-for="item in list"><a v-bind:index="item.id" href="javascript:void(0);" onclick="lo2(event)">{{item.name}}</a></li>
+                </ol>
                 <hr>
             </div>
             <div v-for="site in list">
                 <div class="col-md-4 col-sm-6 project"> 
-                    <div class="single-profile-bottom wow fadeInUp minh" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="single-profile-bottom">
                         <div class="media">
                             <div class="pull-left">
                                 <a href="#"><img class="media-object"  v-on:click="detail" v-bind:id="site.id" :src="site.img" alt=""></a>
@@ -133,6 +140,8 @@
                         <ul>
                             <li><a href="index.html">首页</a></li>
                             <li><a href="about-us.html">关于我们</a></li>
+                            <li><a href="about-us.html">荣誉资质</a></li>
+                            <li><a href="about-us.html">办公环境</a></li>
                         </ul>
                     </div>    
                 </div><!--/.col-md-3-->
@@ -144,6 +153,7 @@
                             <li><a href="project.html#diy">DIY桌面级3D打印机</a></li>
                             <li><a href="project.html#edu">教育类智能3D打印机</a></li>
                             <li><a href="project.html#ind">工业级智能3D打印机</a></li>
+                            <li><a href="project.html#ind">Steam教育方案</a></li>
                         </ul>
                     </div>    
                 </div><!--/.col-md-3-->
@@ -166,6 +176,7 @@
                             <li><a href="services.html#software">软件下载</a></li>
                             <li><a href="services.html#files">文件下载</a></li>
                             <li><a href="services.html#ques">常见问题</a></li>
+                            <li><a href="services.html#ques">3D打印机资讯</a></li>
                         </ul>
                     </div>    
                 </div><!--/.col-md-3-->
@@ -177,7 +188,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    &copy; 2018. 邮箱：314827188@qq.com
+                    &copy; 2018. 业务邮箱：sales@tronhoo3d.com 联系电话：13040878915
                 </div>
                 <div class="col-sm-6">
                     <ul class="pull-right">
@@ -200,6 +211,7 @@
     <script src="js/wow.min.js"></script>
     <script src="js/vue.js"></script>
     <script type="text/javascript">
+
         $.get("http://api.tronhoo3d.com/accessories",function (res) {
             var data = res.data;
             var oData = data[1], tData = data[2]; 
@@ -220,6 +232,14 @@
                                 window.location = "acDetail.html#" + event.target.id;
                             }
                         }
+                    });
+            var onel = new Vue({
+                        el: "#onel",
+                        data: oData
+                    });
+            var twol = new Vue({
+                        el: "#twol",
+                        data: tData
                     });
         })
     </script>

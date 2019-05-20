@@ -1,7 +1,7 @@
 $.get("http://api.tronhoo3d.com/products",function (res) {
 	var data = res.data;
 	var diyData = data[1], eduData = data[2], indData = data[3]; 
-    // console.log(diyData,eduData,indData);
+    console.log(diyData,eduData,indData);
 	var vmdiy = new Vue({
                 el: "#diy",
                 data: diyData,

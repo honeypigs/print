@@ -37,3 +37,7 @@ p.t-overflow {
 .commentBox button {float:right; margin-left:20px; padding:5px 30px; background:#01553D; border-radius:5px; color:#fff; font-size:16px;}
 .commentBox button:hover {color:#fff; background:#047857}
 .reply {margin:15px 0 15px 50px;}
+
+.btn{
+	margin-top: 10px;
+}
