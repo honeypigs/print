@@ -7,16 +7,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>配件及耗材</title>
-	
-	<!-- core CSS -->
+    
+    <!-- core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/project.css">
-	
+    
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -38,7 +38,7 @@
                     </button>
                     <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
                 </div>
-				
+                
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li><a href="index.html">首页</a></li>
@@ -75,10 +75,10 @@
                 </div>
             </div><!--/.container-->
         </nav><!--/nav-->
-	</header><!--/header-->
+    </header><!--/header-->
 
     <section id="project">
-    	<div class="container" id="one" >
+        <div class="container" id="one" >
             <div class="left">
                 <h2>{{catalog}}</h2>
                 <ol id="onel" class="breadcrumb">
@@ -97,8 +97,7 @@
                                 <h4>{{site.name}}</h4>
                             </div>
                         </div>
-                        <p>全DIY型3D打印，进程送料，兼容多种耗材亚克力框架式、先进结构设计，噪音低优化插补控制算法，减低运动噪音加热管掉落保护，安全有保障多重过流保护、ESD防护、抗浪涌冲击优化热床设计、保证打印尺寸
-                        </p>
+                        <p>{{site.brief}}</p>
                     </div>
                 </div>
             </div>
@@ -122,13 +121,12 @@
                                 <h4>{{site.name}}</h4>
                             </div>
                         </div>
-                        <p>全DIY型3D打印，进程送料，兼容多种耗材亚克力框架式、先进结构设计，噪音低优化插补控制算法，减低运动噪音加热管掉落保护，安全有保障多重过流保护、ESD防护、抗浪涌冲击优化热床设计、保证打印尺寸
-                        </p>
+                        <p>{{site.brief}}</p>
                     </div>
                 </div>
             </div>
         </div>
-				
+                
     </section>
 
     <section id="bottom">
@@ -211,7 +209,9 @@
     <script src="js/wow.min.js"></script>
     <script src="js/vue.js"></script>
     <script type="text/javascript">
-
+        function lo2(event){
+            window.location = "acDetail.html#" + event.target.attributes.index.value;
+        }
         $.get("http://api.tronhoo3d.com/accessories",function (res) {
             var data = res.data;
             var oData = data[1], tData = data[2]; 

@@ -6,16 +6,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>产品中心</title>
-	
-	<!-- core CSS -->
+    
+    <!-- core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/project.css">
-	
+    
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -37,7 +37,7 @@
                     </button>
                     <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
                 </div>
-				
+                
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li><a href="index.html">首页</a></li>
@@ -74,16 +74,16 @@
                 </div>
             </div><!--/.container-->
         </nav><!--/nav-->
-	</header><!--/header-->
+    </header><!--/header-->
 
     <section id="project">
-    	<div class="container" id="diy">
-    		<div class="left">
-				<h2>{{catalog}}</h2>
+        <div class="container" id="diy">
+            <div class="left">
+                <h2>{{catalog}}</h2>
                 <ol id="diyl" class="breadcrumb">
                     <li v-for="item in list"><a v-bind:index="item.id" href="javascript:void(0);" onclick="lo(event)">{{item.name}}</a></li>
                 </ol>
-			 <hr>
+             <hr>
             </div>
             <div v-for="site in list">
                 <div class="col-md-4 col-sm-6 project"> 
@@ -100,61 +100,13 @@
                     </div>
                 </div>
             </div>
-			
-    	</div>
-    	<div class="container" id="edu">
-	    	<div class="left">
-				<h2>{{catalog}}</h2>
-                <ol id="edul" class="breadcrumb">
-                    <li v-for="item in list"><a v-bind:index="item.id" href="javascript:void(0);" onclick="lo(event)>{{item.name}}</a></li>
-                </ol>
-				<hr>
-			</div>
-            <div v-for="site in list">
-                <div class="col-md-4 col-sm-6 project"> 
-                    <div class="single-profile-bottom" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="media">
-                            <div class="pull-left">
-                                <a href="#"><img class="media-object"  v-on:click="detail" v-bind:id="site.id" src="images/T1A.jpg" alt=""></a>
-                            </div>
-                            <div class="media-body">
-                                <h4>{{site.name}}</h4>
-                            </div>
-                        </div>
-                        <p>{{site.brief}}</p>
-                    </div>
-                </div>
-            </div>
-		</div>
-		<div class="container" id="ind">
-			<div class="left">
-				<h2>{{catalog}}</h2>
-                <ol id="indl" class="breadcrumb">
-                    <li v-for="item in list"><a v-bind:index="item.id" href="javascript:void(0);" onclick="lo(event)>{{item.name}}</a></li>
-                </ol>
-				<hr>
-			</div>
-            <div v-for="site in list">
-                <div class="col-md-4 col-sm-6 project"> 
-                    <div class="single-profile-bottom" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="media">
-                            <div class="pull-left">
-                                <a href="#"><img class="media-object"  v-on:click="detail" v-bind:id="site.id" src="images/T1A.jpg" alt=""></a>
-                            </div>
-                            <div class="media-body">
-                                <h4>{{site.name}}</h4>
-                            </div>
-                        </div>
-                        <p>{{site.brief}}</p>
-                    </div>
-                </div>
-            </div>
-		</div>
-        <div class="container" id="stm">
+            
+        </div>
+        <div class="container" id="edu">
             <div class="left">
                 <h2>{{catalog}}</h2>
-                <ol id="stml" class="breadcrumb">
-                    <li v-for="item in list"><a v-bind:index="item.id" href="javascript:void(0);" onclick="lo(event)>{{item.name}}</a></li>
+                <ol id="edul" class="breadcrumb">
+                    <li v-for="item in list"><a v-bind:index="item.id" href="javascript:void(0);" onclick="lo(event)">{{item.name}}</a></li>
                 </ol>
                 <hr>
             </div>
@@ -163,7 +115,55 @@
                     <div class="single-profile-bottom" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="media">
                             <div class="pull-left">
-                                <a href="#"><img class="media-object"  v-on:click="detail" v-bind:id="site.id" src="images/T1A.jpg" alt=""></a>
+                                <a href="#"><img class="media-object"  v-on:click="detail" v-bind:id="site.id" :src="site.img" alt=""></a>
+                            </div>
+                            <div class="media-body">
+                                <h4>{{site.name}}</h4>
+                            </div>
+                        </div>
+                        <p>{{site.brief}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="ind">
+            <div class="left">
+                <h2>{{catalog}}</h2>
+                <ol id="indl" class="breadcrumb">
+                    <li v-for="item in list"><a v-bind:index="item.id" href="javascript:void(0);" onclick="lo(event)">{{item.name}}</a></li>
+                </ol>
+                <hr>
+            </div>
+            <div v-for="site in list">
+                <div class="col-md-4 col-sm-6 project"> 
+                    <div class="single-profile-bottom" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="media">
+                            <div class="pull-left">
+                                <a href="#"><img class="media-object"  v-on:click="detail" v-bind:id="site.id" :src="site.img" alt=""></a>
+                            </div>
+                            <div class="media-body">
+                                <h4>{{site.name}}</h4>
+                            </div>
+                        </div>
+                        <p>{{site.brief}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="stm">
+            <div class="left">
+                <h2>{{catalog}}</h2>
+                <ol id="stml" class="breadcrumb">
+                    <li v-for="item in list"><a v-bind:index="item.id" href="javascript:void(0);" onclick="lo(event)">{{item.name}}</a></li>
+                </ol>
+                <hr>
+            </div>
+            <div v-for="site in list">
+                <div class="col-md-4 col-sm-6 project"> 
+                    <div class="single-profile-bottom" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="media">
+                            <div class="pull-left">
+                                <a href="#"><img class="media-object"  v-on:click="detail" v-bind:id="site.id" :src="site.img" alt=""></a>
                             </div>
                             <div class="media-body">
                                 <h4>{{site.name}}</h4>
@@ -255,11 +255,13 @@
     <script src="js/vue.js"></script>
     <script src="js/main.js"></script>
     <script>
+        function lo(event){
+            window.location = "detail.html#" + event.target.attributes.index.value;
+        }
         window.onload = function () {
             $.get("http://api.tronhoo3d.com/products",function (res) {
                 var data = res.data;
                 var diyData = data[1], eduData = data[2], indData = data[3],stmData = data[4]; 
-                console.log(data[4]);
                 var vmdiy = new Vue({
                     el: "#diy",
                     data: diyData,
