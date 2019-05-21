@@ -18,8 +18,6 @@ function formatDate (date, fmt) {
 	return fmt;
 };
 
-console.log(formatDate(new Date(1554046320000),"yyyy-M-d h:m"));
-
 function padLeftZero (str) {
 	return ('00' + str).substr(str.length);
 };
@@ -78,8 +76,8 @@ Vue.component('commemt-content',{
 
 
 $.get("http://api.tronhoo3d.com/messages",function(res){
-	console.log(res);
 	var mData = res.data
+	console.log(mData[0],mData[1]);
 	var comment = new Vue({
 		el: "#comment",
 		data: {
@@ -98,34 +96,17 @@ $.get("http://api.tronhoo3d.com/messages",function(res){
 	        			question: data, 
 	        			replies: []
 	        		});
+	        		var qf = new FormData();
+					qf.append("pid", -1);
+					qf.append("message", data);
+					qf.append("token", "6b0e3d40-6575-11e9-a6b0-0f9f5022d5d91");
 	        		$.ajax({
 	        			type: 'post',
 	        			url:'http://api.tronhoo3d.com/messages',
-	        			contentType:'multipart/form-data',
-	        			data:{
-	        				"mode": "formdata",
-	        				"formdata": [
-	        				{
-	        					"key": "pid",
-	        					"value": -1,
-	        					"type": "text"
-	        				},
-	        				{
-	        					"key": "message",
-	        					"value": data,
-	        					"type": "text"
-	        				},
-	        				{
-	        					"key": "token",
-	        					"value": "6b0e3d40-6575-11e9-a6b0-0f9f5022d5d9",
-	        					"type": "text"
-	        				}
-	        				]
-	        			},
-	        			dataType:'json',
-	        			success:function (data) {
-	        				console.log(1);
-	        			}
+	        			processData : false,
+	        			contentType:false,
+	        			data:qf,
+	        			dataType:'json'
 	        		})
 	        	}else if(this.type == 1){
 	        		this.comment[this.chosedIndex].replies.push({
@@ -135,34 +116,17 @@ $.get("http://api.tronhoo3d.com/messages",function(res){
 	        			token: "6b0e3d40-6575-11e9-a6b0-0f9f5022d5d9",
 	        			reply: data
 	        		});
-	        		$.ajax({
+		        		var af = new FormData();
+						af.append("pid", this.oldComment);
+						af.append("message", data);
+						af.append("token", "6b0e3d40-6575-11e9-a6b0-0f9f5022d5d91");
+		        		$.ajax({
 	        			type: 'post',
 	        			url:'http://api.tronhoo3d.com/messages',
-	        			contentType:'multipart/form-data',
-	        			data:{
-	        				"mode": "formdata",
-	        				"formdata": [
-	        				{
-	        					"key": "pid",
-	        					"value": this.oldComment,
-	        					"type": "text"
-	        				},
-	        				{
-	        					"key": "message",
-	        					"value": data,
-	        					"type": "text"
-	        				},
-	        				{
-	        					"key": "token",
-	        					"value": "6b0e3d40-6575-11e9-a6b0-0f9f5022d5d9",
-	        					"type": "text"
-	        				}
-	        				]
-	        			},
-	        			dataType:'json',
-	        			success:function (data) {
-	        				console.log(2);
-	        			}
+	        			processData : false,
+	        			contentType:false,
+	        			data:af,
+	        			dataType:'json'
 	        		})
 	        		this.type = 0;
 	        	}
