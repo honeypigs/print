@@ -205,5 +205,13 @@
     <script src="js/jquery.isotope.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/wow.min.js"></script>
+    <script type="text/javascript">
+        var pointer = document.querySelectorAll(".fa-link");
+        for(var i = 0; i< pointer.length;i++) {
+            pointer[i].onclick = function() {
+                window.location = "http://" + this.parentElement.children[2].innerText;
+            }
+        }
+    </script>
 </body>
 </html>
