@@ -95,6 +95,10 @@
     margin-right: 0;
   }
 
+  #main-slider .carousel .item {
+    height: 600px;
+  }
+
 }
 
 
@@ -182,6 +186,9 @@
 
   .blog .blog-item .entry-meta > span a{
     font-size: 10px;
+  }
+  #main-slider .carousel .item {
+    height: 500px;
   }
 }
 
@@ -291,13 +298,40 @@
   .post_reply_comments {
     padding-left: 20px;
   }
-    
+  #main-slider .carousel .item {
+    height: 500px;
+  }
 
 }
 
 /* XS Portrait */
 @media (max-width: 480px) {
+  #main-slider .carousel .item {
+    height: 300px;
+  }
+  #main-slider .carousel-indicators li {
+    width: 10px;
+    height: 10px;
+  }
 
+  #main-slider .carousel-indicators li:after {
+    width:12px;
+    height: 12px;
+    left: -2px;
+    top: -2px;
+  }
+
+  #main-slider .carousel-indicators .active {
+    width: 10px;
+    height: 10px;
+  }
+
+  #main-slider .carousel-indicators .active:after {
+    width:12px;
+    height: 12px;
+    left: -2px;
+    top: -2px;
+  }
 
 }
 
