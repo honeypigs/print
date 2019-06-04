@@ -88,28 +88,34 @@
 
             <div class="carousel-inner">
 
-                <div class="item active" style="background-image: url(images/slider/banner01.jpg)">
-                    <a class="btn-slide wow fadeInDown bannera" href="project.html#edu">了解更多</a>
+                <div class="item active">
+                    <img class="sliderImg" src="images/slider/banner01.jpg">
+                    <a class="btn-slide wow fadeInDown hidden-xs bannera" href="project.html#edu">了解更多</a>
                 </div><!--/.item-->
 
-                <div class="item" style="background-image: url(images/slider/banner02.jpg)">
-                    <a class="btn-slide wow fadeInDown bannera" href="project.html#diy">了解更多</a>
+                <div class="item">
+                    <img class="sliderImg" src="images/slider/banner02.jpg">
+                    <a class="btn-slide wow fadeInDown hidden-xs bannera" href="project.html#diy">了解更多</a>
                 </div><!--/.item-->
 
-                <div class="item" style="background-image: url(images/slider/banner03.jpg)">
-                    <a class="btn-slide wow fadeInDown bannera" href="project.html#ind">了解更多</a>
+                <div class="item">
+                    <img class="sliderImg" src="images/slider/banner03.jpg">
+                    <a class="btn-slide wow fadeInDown hidden-xs bannera" href="project.html#ind">了解更多</a>
                 </div><!--/.item-->
 
-                <div class="item" style="background-image: url(images/slider/banner04.jpg)">
-                    <a class="btn-slide wow fadeInDown bannera" href="project.html#ind">了解更多</a>
+                <div class="item">
+                    <img class="sliderImg" src="images/slider/banner04.jpg">
+                    <a class="btn-slide wow fadeInDown hidden-xs bannera" href="project.html#ind">了解更多</a>
                 </div><!--/.item-->
 
-                <div class="item" style="background-image: url(images/slider/banner05.jpg)">
-                    <a class="btn-slide wow fadeInDown bannera" href="project.html#stm">了解更多</a>
+                <div class="item">
+                    <img class="sliderImg" src="images/slider/banner05.jpg">
+                    <a class="btn-slide wow fadeInDown hidden-xs bannera" href="project.html#stm">了解更多</a>
                 </div><!--/.item-->
 
-                <div class="item" style="background-image: url(images/slider/banner06.jpg)">
-                    <a class="btn-slide wow fadeInDown bannera" href="sell.html">了解更多</a>
+                <div class="item">
+                    <img class="sliderImg" src="images/slider/banner06.jpg">
+                    <a class="btn-slide wow fadeInDown hidden-xs bannera" href="sell.html">了解更多</a>
                 </div><!--/.item-->
             </div><!--/.carousel-inner-->
         </div><!--/.carousel-->
@@ -438,5 +444,13 @@
     <script src="js/jquery.isotope.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/wow.min.js"></script>
+    <script type="text/javascript">
+        var img = document.querySelectorAll(".sliderImg");
+        for(var i = 0; i< img.length;i++) {
+            img[i].onclick = function(){
+                window.location = this.nextElementSibling.attributes[1].nodeValue                
+            }
+        }
+    </script>
 </body>
 </html>
