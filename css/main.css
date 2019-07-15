@@ -418,8 +418,9 @@ input.search-form:hover {
 }
 #main-slider .carousel .item .sliderImg {
   margin: 0 auto;
-  width: 100%;
+  width: 95%;
   max-width: 2800px;
+  max-height:1000px;
 }
 
 #main-slider .carousel .item:first-child {
@@ -459,11 +460,11 @@ input.search-form:hover {
 }
 
 #main-slider .prev {
-  left: 10px;
+  left: 5%;
 }
 
 #main-slider .next {
-  right: 10px;
+  right: 5%;
 }
 
 #main-slider .carousel-indicators li {
@@ -1191,6 +1192,7 @@ a.accordion-toggle  i{
   border: 1px solid #ddd;
   padding: 15px;
   position: relative;
+  min-height:315px;
 }
 
 .media_image {
@@ -2555,4 +2557,8 @@ shortcodes page css
   right: 0;
   margin-left: auto;
   margin-right: auto;
+}
+
+[v-cloak] {
+    display: none !important;
 }

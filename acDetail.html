@@ -80,7 +80,7 @@
     <section id="project">
         <div class="container" id="detail">
             <div class="row">
-                <div class="left">
+                <div class="col-md-4 col-sm-6 col-xs-12" style="margin-left:5%; float:left;">
                     <div class="carousel slide" id="carousel-490853">
                         <ol class="carousel-indicators">
                             <li data-slide-to="0" data-target="#carousel-490853">
@@ -90,7 +90,7 @@
                             <li data-slide-to="2" data-target="#carousel-490853" class="active">
                             </li>
                         </ol>
-                        <div class="carousel-inner">
+                        <div class="carousel-inner" style="height:293px;">
                             <div class="item">
                                 <img alt="" :src="img" />
                             </div>
@@ -103,19 +103,19 @@
                         </div> <a data-slide="prev" href="#carousel-490853" class="left carousel-control">‹</a> <a data-slide="next" href="#carousel-490853" class="right carousel-control">›</a>
                     </div>
                 </div>
-                <div class="right">
+                <div class="col-md-4 col-sm-6 col-xs-12" style="margin-left:5%;">
                     <div class="rowtxt">
                         <div class="text">
-                            <h2>
+                            <h2 v-cloak>
                                 {{catalog}}
                             </h2>
-                            <p>
+                            <p v-cloak>
                                 {{name}}
                             </p>
                         </div>
                     </div>
                     <div class="rowtxt">
-                        <div class="left">
+                        <div class="col-md-4 col-sm-6 col-xs-12" style=" float:left;">
                              <button class="btn btn-large btn-success btn-block" type="button"><a :href="link" class="buy">购买链接</a></button>
                         </div>
                     </div>

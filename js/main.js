@@ -68,10 +68,3 @@ jQuery(function($) {'use strict',
 		social_tools: false
 	});	
 });
-
-function lo(event){
-	window.location = "detail.html#" + event.target.attributes.index.value;
-}
-function lo2(event){
-	window.location = "acDetail.html#" + event.target.attributes.index.value;
-}

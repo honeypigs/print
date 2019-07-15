@@ -80,7 +80,7 @@
     <section id="project">
         <div class="container" id="models" v-for="site in data">
             <div class="left">
-                <h2>{{message}}</h2>
+                <h2 v-cloak>{{message}}</h2>
                 <hr>
             </div>
             <div class="col-xs-6 col-md-3">
@@ -95,7 +95,7 @@
                 <hr>
             </div>
             <div class="list-group">
-                <a :href="site.link" class="list-group-item">{{site.filename}}</a>
+                <a :href="site.link" class="list-group-item" v-cloak>{{site.filename}}</a>
             </div>
         </div>
         <div class="container" id="files" v-for="site in data">
@@ -104,7 +104,7 @@
                 <hr>
             </div>
             <div class="list-group">
-                <a href="site.link" class="list-group-item">{{site.filename}}</a>
+                <a href="site.link" class="list-group-item" v-cloak>{{site.filename}}</a>
             </div>
         </div>
         <div class="container" id="ques">
@@ -115,7 +115,7 @@
             <div class="list-group" v-for="site in data">
                 <div class="question">
                     <a href="javascript:void(0)" class="list-group-item" :id="site.id" onclick="show(event)">问题：{{site.title}}(点击显示详细信息) </a>
-                    <div class="content">解决方法：<span style="float: right;">创建于{{formatDate(new Date(site.created_at*1000),"yyyy-M-d h:m")}}</span><p v-html="site.content"></p></div>
+                    <div class="content">解决方法：<span style="float: right;" v-cloak>创建于{{formatDate(new Date(site.created_at*1000),"yyyy-M-d h:m")}}</span><p v-html="site.content"></p></div>
                 </div>
                 
             </div>
@@ -128,7 +128,7 @@
             <div class="list-group" v-for="site in data">
                 <div class="question">
                     <a href="javascript:void(0)" class="list-group-item" :id="site.id" onclick="show(event)">{{site.title}}(点击显示详细信息) </a>
-                    <div class="content">文章<span style="float: right;">发布时间：{{formatDate(new Date(site.created_at*1000),"yyyy-M-d h:m")}}</span><p v-html="site.content"></p></div>
+                    <div class="content">文章<span style="float: right;" v-cloak>发布时间：{{formatDate(new Date(site.created_at*1000),"yyyy-M-d h:m")}}</span><p v-html="site.content"></p></div>
                 </div>
                 
             </div>

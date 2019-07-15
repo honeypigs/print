@@ -1,12 +1,11 @@
 .left {
 	width: 35%;
 	float: left;
-	margin-left: 10%;
+
 }
 .right {
 	width: 35%;
 	float: right;
-	margin-right: 10%;
 }
 
 .left .item {

@@ -55,11 +55,13 @@ Vue.component('commemt-content',{
 	<p v-if="comment.length==0">暂无评论，我来发表第一篇评论！</p>\
 	<div v-else>\
 	<div class="comment" v-for="(item,index) in comment" v-bind:index="index">\
-	<b>用户#{{item.id}}<span>{{formatDate(new Date(item.created_at*1000),"yyyy-M-d h:m")}}</span></b>\
+	<b v-if="item.type == 1">创宏官方<span>{{formatDate(new Date(item.created_at*1000),"yyyy-M-d h:m")}}</span></b>\
+	<b v-else-if="item.type == 0">用户#{{item.id}}<span>{{formatDate(new Date(item.created_at*1000),"yyyy-M-d h:m")}}</span></b>\
 	<p @click="changeCommenter(item.id,index)">{{item.question}}</p>\
 	<div v-if="item.replies.length > 0">\
 	<div class="reply" v-for="reply in item.replies">\
-	<b>用户#{{reply.id}}&nbsp;&nbsp;回复&nbsp;&nbsp;用户#{{reply.pid}}<span>{{formatDate(new Date(reply.created_at*1000),"yyyy-M-d h:m")}}</span></b>\
+	<b v-if="reply.type ==  1">创宏官方回复&nbsp;&nbsp;回复&nbsp;&nbsp;用户#{{reply.pid}}<span>{{formatDate(new Date(reply.created_at*1000),"yyyy-M-d h:m")}}</span></b>\
+	<b v-else-if="reply.type == 0">用户#{{reply.id}}&nbsp;&nbsp;回复&nbsp;&nbsp;用户#{{reply.pid}}<span>{{formatDate(new Date(reply.created_at*1000),"yyyy-M-d h:m")}}</span></b>\
 	<p @click="changeCommenter(reply.id,index)"">{{reply.reply}}</p>\
 	</div>\
 	</div>\
