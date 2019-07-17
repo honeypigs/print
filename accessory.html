@@ -43,32 +43,10 @@
                     <ul class="nav navbar-nav">
                         <li><a href="index.html">首页</a></li>
                         <li><a href="about-us.html">关于我们</a></li>
-                        <li class="dropdown">
-                            <a href="project.html" class="dropdown-toggle" data-toggle="project.html">产品中心<i class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="project.html#diy">DIY桌面级3D打印机</a></li>
-                                <li><a href="project.html#edu">教育类智能3D打印机</a></li>
-                                <li><a href="project.html#ind">工业级智能3D打印机</a></li>
-                                <li><a href="project.tml#stm">Steam教育方案</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown active">
-                            <a href="accessory.html" class="dropdown-toggle" data-toggle="accessory.html">配件及耗材<i class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="accessory.html#1">打印机配件</a></li>
-                                <li><a href="accessory.html#2">打印机耗材</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="services.html" class="dropdown-toggle" data-toggle="services.html">服务支持<i class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="services.html#models">模型库</a></li>
-                                <li><a href="services.html#software">软件下载</a></li>
-                                <li><a href="services.html#files">文件下载</a></li>
-                                <li><a href="services.html#ques">常见问题</a></li>
-                                <li><a href="services.html#news">3D打印机资讯</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="project.html">产品中心</a></li>
+                        <li class="active" ><a href="accessory.html">打印机配件</a></li>
+                        <li><a href="accessory2.html">打印机耗材</a></li>
+                        <li><a href="services.html">服务支持</a></li>
                         <li><a href="sell.html">销售网络</a></li> 
                         <li><a href="contact-us.html">联系我们</a></li>                        
                     </ul>
@@ -77,62 +55,59 @@
         </nav><!--/nav-->
 	</header><!--/header-->
 
-    <section id="project">
-    	<div class="container" id="one" >
-            <div class="left">
-                <h2 v-cloak>{{catalog}}</h2>
-                <ol id="onel" class="breadcrumb">
-                    <li v-for="item in list" v-cloak><a v-bind:index="item.id" href="javascript:void(0);" onclick="lo2(event)">{{item.name}}</a></li>
-                </ol>
-                <hr>
-            </div>
-            <div v-for="site in list">
-                <div class="col-md-4 col-sm-6 project"> 
-                    <div class="single-profile-bottom">
-                        <div class="media">
-                            <div class="pull-left">
-                                <a href="#"><img class="media-object"  v-on:click="detail" v-bind:id="site.id" :src="site.img" alt=""></a>
+     <section id="project">
+        <div class="col-md-2 col-xs-11 col-sm-2 col-lg-2" style="height:450px;"></div>
+        <div class="col-md-2 col-xs-11 col-sm-2 col-lg-2" id="list" style="position: fixed;z-index: 1000">
+            <ul id="onel" class="nav nav-tabs nav-stacked" v-cloak>
+                <li class="active" style="cursor:pointer;">
+                    <a href="#" style="cursor:pointer">
+                        <i class="fa fa-bars"></i>
+                        {{catalog}}
+                    </a>
+                </li>
+                <li v-for="iteml in list">
+                    <a :href="'#' + iteml[0].item_type + 'l'" class="nav-header collapsed" data-toggle="collapse">
+                        <i class="fa fa-bars"></i>
+                        {{iteml[0].item_type}}
+                        <span class="pull-right fa fa-angle-down"></span>
+                    </a>
+                    <ul v-bind:id="iteml[0].item_type + 'l'" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                        <li class="white" v-for="item in iteml" v-cloak><a v-bind:index="item.id" href="javascript:void(0);" onclick="lo2(event)"><i class="fa fa-tags"></i>{{item.name}}</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>  
+        <div class="col-md-10 col-sm-10 col-xs-12 col-lg-10" id = "one" >
+            <div class="col-md-12 col-sm-12" v-for="model in list" v-bind:id="model[0].item_type">
+                <div class="left">
+                    <h2 v-cloak>{{model[0].item_type}}</h2>  
+                    <hr>
+                </div>
+                <div v-for="site in model">
+                    <div class="col-md-4 col-sm-6 project"> 
+                        <div class="single-profile-bottom">
+                            <div class="media">
+                                <div class="pull-left">
+                                    <a href="#"><img class="media-object"  v-on:click="detail" v-bind:id="site.id" :src="site.img" alt=""></a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 v-cloak>{{site.name}}</h4>
+                                </div>
                             </div>
-                            <div class="media-body">
-                                <h4 v-cloak>{{site.name}}</h4>
-                            </div>
+                            <p v-cloak>{{site.brief}}</p>
                         </div>
-                        <p v-cloak>{{site.brief}}</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container" id="two" v-for="site in list">
-            <div class="left">
-                <h2 v-cloak>{{catalog}}</h2>
-                <ol id="twol" class="breadcrumb">
-                    <li v-for="item in list" v-cloak><a v-bind:index="item.id" href="javascript:void(0);" onclick="lo2(event)">{{item.name}}</a></li>
-                </ol>
-                <hr>
-            </div>
-            <div v-for="site in list">
-                <div class="col-md-4 col-sm-6 project"> 
-                    <div class="single-profile-bottom">
-                        <div class="media">
-                            <div class="pull-left">
-                                <a href="#"><img class="media-object"  v-on:click="detail" v-bind:id="site.id" :src="site.img" alt=""></a>
-                            </div>
-                            <div class="media-body">
-                                <h4 v-cloak>{{site.name}}</h4>
-                            </div>
-                        </div>
-                        <p v-cloak>{{site.brief}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-				
+                
     </section>
 
-    <section id="bottom">
+        <section id="bottom">
         <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
             <div class="row">
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-2 col-sm-6"></div>
+                <div class="col-md-2 col-sm-6">
                     <div class="widget">
                         <h3>公司信息</h3>
                         <ul>
@@ -144,7 +119,7 @@
                     </div>    
                 </div><!--/.col-md-3-->
 
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-2 col-sm-6">
                     <div class="widget">
                         <h3>产品中心</h3>
                         <ul>
@@ -156,17 +131,17 @@
                     </div>    
                 </div><!--/.col-md-3-->
 
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-2 col-sm-6">
                     <div class="widget">
                         <h3>配件及耗材</h3>
                         <ul>
-                            <li><a href="accessory.html#1">打印机配件</a></li>
-                            <li><a href="accessory.html#2">打印机耗材</a></li>   
+                            <li><a href="accessory1.html">打印机配件</a></li>
+                            <li><a href="accessory2.html">打印机耗材</a></li>   
                         </ul>
                     </div>    
                 </div><!--/.col-md-3-->
 
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-2 col-sm-6">
                     <div class="widget">
                         <h3>服务支持</h3>
                         <ul>
@@ -174,10 +149,12 @@
                             <li><a href="services.html#software">软件下载</a></li>
                             <li><a href="services.html#files">文件下载</a></li>
                             <li><a href="services.html#ques">常见问题</a></li>
-                            <li><a href="services.html#ques">3D打印机资讯</a></li>
+                            <li><a href="services.html#news">3D打印机资讯</a></li>
                         </ul>
                     </div>    
                 </div><!--/.col-md-3-->
+                <img class="contactImg" src="images/contact2.png" alt="官网二维码">
+                <img class="contactImg" src="images/contact1.png" alt="微信公众号">
             </div>
         </div>
     </section><!--/#bottom-->
@@ -209,24 +186,103 @@
     <script src="js/wow.min.js"></script>
     <script src="js/vue.js"></script>
     <script type="text/javascript">
+        var list = document.querySelector("#list");
+        list.onclick = function(e) {
+            if(e.target.hash == "#控制模块l") {
+                document.querySelector("#控制模块").hidden = false;
+                document.querySelector("#驱动模块").hidden = true;
+                document.querySelector("#热床").hidden = true;
+                document.querySelector("#光学模块").hidden = true;
+                document.querySelector("#挤出模块").hidden = true;
+                document.querySelector("#电机").hidden = true;
+                document.querySelector("#传感器").hidden = true;
+                document.querySelector("#其他模块及配件").hidden = true;
+            } else if(e.target.hash == "#驱动模块l") {
+                document.querySelector("#控制模块").hidden = true;
+                document.querySelector("#驱动模块").hidden = false;
+                document.querySelector("#热床").hidden = true;
+                document.querySelector("#光学模块").hidden = true;
+                document.querySelector("#挤出模块").hidden = true;
+                document.querySelector("#电机").hidden = true;
+                document.querySelector("#传感器").hidden = true;
+                document.querySelector("#其他模块及配件").hidden = true;
+            } else if(e.target.hash == "#热床l") {
+                document.querySelector("#控制模块").hidden = true;
+                document.querySelector("#驱动模块").hidden = true;
+                document.querySelector("#热床").hidden = false;
+                document.querySelector("#光学模块").hidden = true;
+                document.querySelector("#挤出模块").hidden = true;
+                document.querySelector("#电机").hidden = true;
+                document.querySelector("#传感器").hidden = true;
+                document.querySelector("#其他模块及配件").hidden = true;
+            } else if(e.target.hash == "#光学模块l") {
+                document.querySelector("#控制模块").hidden = true;
+                document.querySelector("#驱动模块").hidden = true;
+                document.querySelector("#热床").hidden = true;
+                document.querySelector("#光学模块").hidden = false;
+                document.querySelector("#挤出模块").hidden = true;
+                document.querySelector("#电机").hidden = true;
+                document.querySelector("#传感器").hidden = true;
+                document.querySelector("#其他模块及配件").hidden = true;
+            } else if(e.target.hash == "#挤出模块l") {
+                document.querySelector("#控制模块").hidden = true;
+                document.querySelector("#驱动模块").hidden = true;
+                document.querySelector("#热床").hidden = true;
+                document.querySelector("#光学模块").hidden = true;
+                document.querySelector("#挤出模块").hidden = false;
+                document.querySelector("#电机").hidden = true;
+                document.querySelector("#传感器").hidden = true;
+                document.querySelector("#其他模块及配件").hidden = true;
+
+            } else if(e.target.hash == "#电机l") {
+                document.querySelector("#控制模块").hidden = true;
+                document.querySelector("#驱动模块").hidden = true;
+                document.querySelector("#热床").hidden = true;
+                document.querySelector("#光学模块").hidden = true;
+                document.querySelector("#挤出模块").hidden = true;
+                document.querySelector("#电机").hidden = false;
+                document.querySelector("#传感器").hidden = true;
+                document.querySelector("#其他模块及配件").hidden = true;
+
+            } else if(e.target.hash == "#传感器l") {
+                document.querySelector("#控制模块").hidden = true;
+                document.querySelector("#驱动模块").hidden = true;
+                document.querySelector("#热床").hidden = true;
+                document.querySelector("#光学模块").hidden = true;
+                document.querySelector("#挤出模块").hidden = true;
+                document.querySelector("#电机").hidden = true;
+                document.querySelector("#传感器").hidden = false;
+                document.querySelector("#其他模块及配件").hidden = true;
+
+            } else if(e.target.hash == "#其他模块及配件l") {
+                document.querySelector("#控制模块").hidden = true;
+                document.querySelector("#驱动模块").hidden = true;
+                document.querySelector("#热床").hidden = true;
+                document.querySelector("#光学模块").hidden = true;
+                document.querySelector("#挤出模块").hidden = true;
+                document.querySelector("#电机").hidden = true;
+                document.querySelector("#传感器").hidden = true;
+                document.querySelector("#其他模块及配件").hidden = false;
+            } else {
+                document.querySelector("#控制模块").hidden = false;
+                document.querySelector("#驱动模块").hidden = false;
+                document.querySelector("#热床").hidden = false;
+                document.querySelector("#光学模块").hidden = false;
+                document.querySelector("#挤出模块").hidden = false;
+                document.querySelector("#电机").hidden = false;
+                document.querySelector("#传感器").hidden = false;
+                document.querySelector("#其他模块及配件").hidden = false;
+            }
+        }
 		function lo2(event){
 			window.location = "acDetail.html#" + event.target.attributes.index.value;
 		}
         $.get("http://api.tronhoo3d.com/accessories",function (res) {
             var data = res.data;
-            var oData = data[1], tData = data[2]; 
+            var oData = data[1]; 
             var one = new Vue({
                         el: "#one",
                         data: oData,
-                        methods: {
-                            detail: function(event){
-                                window.location = "acDetail.html#" + event.target.id;
-                            }
-                        }
-                    });
-            var two = new Vue({
-                        el: "#two",
-                        data: tData,
                         methods: {
                             detail: function(event){
                                 window.location = "acDetail.html#" + event.target.id;
@@ -237,11 +293,17 @@
                         el: "#onel",
                         data: oData
                     });
-            var twol = new Vue({
-                        el: "#twol",
-                        data: tData
-                    });
         })
+         changefix();
+        window.onresize = function() {
+            changefix();
+        }
+        function changefix() {
+            var width = document.body.clientWidth;
+            if (width < 768) {
+                document.querySelector("#list").style.position = "absolute";
+            }
+        }
     </script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 #project {
-	padding: 30px;
+	padding: 10px;
+	overflow: hidden;
 }
 #project h2 {
 	font-size: 24px;
@@ -21,4 +22,16 @@
 }
 .left ol {
 	margin:0;
+}
+ 
+.white {
+	background-color: white;
+}
+
+img {
+	width: 100% !important;
+}
+
+.contactImg {
+	width: 100px !important;
 }

@@ -1,26 +1,26 @@
-    <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>服务支持</title>
-    
-    <!-- core CSS -->
+    <title>配件及耗材</title>
+	
+	<!-- core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/project.css">
-    <link rel="stylesheet" type="text/css" href="css/service.css">
-    
+	
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
-    <![endif]-->       
+    <![endif]-->
 </head><!--/head-->
 
 <body>
@@ -38,163 +38,69 @@
                     </button>
                     <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
                 </div>
-                
+				
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li><a href="index.html">首页</a></li>
                         <li><a href="about-us.html">关于我们</a></li>
                         <li><a href="project.html">产品中心</a></li>
                         <li><a href="accessory.html">打印机配件</a></li>
-                        <li><a href="accessory2.html">打印机耗材</a></li>
-                        <li class="active"><a href="services.html">服务支持</a></li>
+                        <li class="active"><a href="accessory2.html">打印机耗材</a></li>
+                        <li><a href="services.html">服务支持</a></li>
                         <li><a href="sell.html">销售网络</a></li> 
                         <li><a href="contact-us.html">联系我们</a></li>                        
                     </ul>
                 </div>
             </div><!--/.container-->
         </nav><!--/nav-->
-    </header><!--/header-->
+	</header><!--/header-->
 
     <section id="project">
-        <div class="col-md-2 col-xs-11 col-sm-2 col-lg-2" style="visibility: hidden;z-index: 500">
-            <ul id="main-nav" class="nav nav-tabs nav-stacked">
-                <li class="active" style="cursor:pointer;">
-                    <a href="#" style="cursor:pointer">
-                        <i class="fa fa-bars"></i>
-                        服务支持
-                    </a>
-                </li>
-                <li>
-                    <a href="" class="nav-header collapsed" data-toggle="collapse">
-                        <i class="fa fa-bars"></i>
-                        3D模型数据列表
-                    </a>
-                </li>
-                <li>
-                    <a href="" class="nav-header collapsed" data-toggle="collapse">
-                        <i class="fa fa-bars"></i>
-                        软件下载
-                    </a>
-                </li>
-                <li>
-                    <a href="" class="nav-header collapsed" data-toggle="collapse">
-                        <i class="fa fa-bars"></i>
-                        文件下载
-                    </a>
-                </li>
-                <li>
-                    <a href="" class="nav-header collapsed" data-toggle="collapse">
-                        <i class="fa fa-bars"></i>
-                        常见问题
-                    </a>
-                </li>
-                <li>
-                    <a href= class="nav-header collapsed" data-toggle="collapse">
-                        <i class="fa fa-bars"></i>
-                        Steam教育方案
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <div class="col-md-2 col-xs-11 col-sm-2 col-lg-2" style="height:350px;"></div>
         <div class="col-md-2 col-xs-11 col-sm-2 col-lg-2" id="list" style="position: fixed;z-index: 1000">
-            <ul id="main-nav" class="nav nav-tabs nav-stacked">
+            <ul id="twol" class="nav nav-tabs nav-stacked" v-cloak>
                 <li class="active" style="cursor:pointer;">
                     <a href="#" style="cursor:pointer">
                         <i class="fa fa-bars"></i>
-                        服务支持
+                        {{catalog}}
                     </a>
                 </li>
-                <li>
-                    <a href="#modelsl" class="nav-header collapsed" data-toggle="collapse">
+                <li v-for="iteml in list">
+                    <a :href="'#' + iteml[0].item_type + 'l'" class="nav-header collapsed" data-toggle="collapse">
                         <i class="fa fa-bars"></i>
-                        3D模型数据列表
+                        {{iteml[0].item_type}}
+                        <span class="pull-right fa fa-angle-down"></span>
                     </a>
-                </li>
-                <li>
-                    <a href="#softwarel" class="nav-header collapsed" data-toggle="collapse">
-                        <i class="fa fa-bars"></i>
-                        软件下载
-                    </a>
-                </li>
-                <li>
-                    <a href="#filesl" class="nav-header collapsed" data-toggle="collapse">
-                        <i class="fa fa-bars"></i>
-                        文件下载
-                    </a>
-                </li>
-                <li>
-                    <a href="#quesl" class="nav-header collapsed" data-toggle="collapse">
-                        <i class="fa fa-bars"></i>
-                        常见问题
-                    </a>
-                </li>
-                <li>
-                    <a href="#newsl" class="nav-header collapsed" data-toggle="collapse">
-                        <i class="fa fa-bars"></i>
-                        3D打印机资讯
-                    </a>
+                    <ul v-bind:id="iteml[0].item_type + 'l'" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                        <li class="white" v-for="item in iteml" v-cloak><a v-bind:index="item.id" href="javascript:void(0);" onclick="lo2(event)"><i class="fa fa-tags"></i>{{item.name}}</a></li>
+                    </ul>
                 </li>
             </ul>
+        </div>  
+        <div class="col-md-10 col-sm-10 col-xs-12 col-lg-10" id = "two">
+            <div class="col-md-12 col-sm-12"  v-for="model in list" v-bind:id="model[0].item_type">
+                <div class="left">
+                    <h2 v-cloak>{{model[0].item_type}}</h2>  
+                    <hr>
+                </div>
+                <div v-for="site in model">
+                    <div class="col-md-4 col-sm-6 project"> 
+                        <div class="single-profile-bottom">
+                            <div class="media">
+                                <div class="pull-left">
+                                    <a href="#"><img class="media-object"  v-on:click="detail" v-bind:id="site.id" :src="site.img" alt=""></a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 v-cloak>{{site.name}}</h4>
+                                </div>
+                            </div>
+                            <p v-cloak>{{site.brief}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-10 col-sm-10 col-xs-12 col-lg-10">
-            <div class="container" id="models" v-cloak>
-                <div class="left">
-                    <h2>{{message}}</h2>
-                    <hr>
-                </div>
-                <div class="col-xs-6 col-md-3"  v-for="site in data">
-                    <a :href="site.link" class="thumbnail" >
-                        <img :src="site.img" alt="...">
-                    </a>
-                </div>
-            </div>
-            <div class="container" id="software" v-cloak>
-                <div class="left">
-                    <h2>软件下载</h2>
-                    <hr>
-                </div>
-                <div class="list-group" v-for="site in data">
-                    <a :href="site.link" class="list-group-item" v-cloak>{{site.filename}}</a>
-                </div>
-            </div>
-            <div class="container" id="files" v-cloak>
-                <div class="left">
-                    <h2>文件下载</h2>
-                    <hr>
-                </div>
-                <div class="list-group" v-for="site in data">
-                    <a href="site.link" class="list-group-item" v-cloak>{{site.filename}}</a>
-                </div>
-            </div>
-            <div class="container" id="ques" v-cloak>
-                <div class="left">
-                    <h2>常见问题</h2>
-                    <hr>
-                </div>
-                <div class="list-group" v-for="site in data">
-                    <div class="question">
-                        <a href="javascript:void(0)" class="list-group-item" :id="site.id" onclick="show(event)">问题：{{site.title}}(点击显示详细信息) </a>
-                        <div class="content">解决方法：<span style="float: right;" v-cloak>创建于{{formatDate(new Date(site.created_at*1000),"yyyy-M-d h:m")}}</span><p v-html="site.content"></p></div>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="container" id="news" v-cloak>
-                <div class="left">
-                    <h2>3D打印机资讯</h2>
-                    <hr>
-                </div>
-                <div class="list-group" v-for="site in data">
-                    <div class="question">
-                        <a href="javascript:void(0)" class="list-group-item" :id="site.id" onclick="show(event)">{{site.title}}(点击显示详细信息) </a>
-                        <div class="content">文章<span style="float: right;" v-cloak>发布时间：{{formatDate(new Date(site.created_at*1000),"yyyy-M-d h:m")}}</span><p v-html="site.content"></p></div>
-                    </div>
-                    
-                </div>
-            </div>     
-        </div> 
-        
-                
+				
     </section>
 
         <section id="bottom">
@@ -270,6 +176,7 @@
             </div>
         </div>
     </footer><!--/#footer-->
+    
 
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -278,6 +185,92 @@
     <script src="js/main.js"></script>
     <script src="js/wow.min.js"></script>
     <script src="js/vue.js"></script>
-    <script src="js/services.js"></script>
+    <script type="text/javascript">
+        var list = document.querySelector("#list");
+        list.onclick = function(e) {
+            if(e.target.hash == "#PLAl") {
+                document.querySelector("#PLA").hidden = false;
+                document.querySelector("#PCL").hidden = true;
+                document.querySelector("#ABS").hidden = true;
+                document.querySelector("#TPU").hidden = true;
+                document.querySelector("#光敏树脂").hidden = true;
+                document.querySelector("#其他耗材").hidden = true;
+            } else if(e.target.hash == "#PCLl") {
+                document.querySelector("#PLA").hidden = true;
+                document.querySelector("#PCL").hidden = false;
+                document.querySelector("#ABS").hidden = true;
+                document.querySelector("#TPU").hidden = true;
+                document.querySelector("#光敏树脂").hidden = true;
+                document.querySelector("#其他耗材").hidden = true;
+            } else if(e.target.hash == "#ABSl") {
+                document.querySelector("#PLA").hidden = true;
+                document.querySelector("#PCL").hidden = true;
+                document.querySelector("#ABS").hidden = false;
+                document.querySelector("#TPU").hidden = true;
+                document.querySelector("#光敏树脂").hidden = true;
+                document.querySelector("#其他耗材").hidden = true;
+            } else if(e.target.hash == "#TPUl") {
+                document.querySelector("#PLA").hidden = true;
+                document.querySelector("#PCL").hidden = true;
+                document.querySelector("#ABS").hidden = true;
+                document.querySelector("#TPU").hidden = false;
+                document.querySelector("#光敏树脂").hidden = true;
+                document.querySelector("#其他耗材").hidden = true;
+            } else if(e.target.hash == "#光敏树脂l") {
+                document.querySelector("#PLA").hidden = true;
+                document.querySelector("#PCL").hidden = true;
+                document.querySelector("#ABS").hidden = true;
+                document.querySelector("#TPU").hidden = true;
+                document.querySelector("#光敏树脂").hidden = false;
+                document.querySelector("#其他耗材").hidden = true;
+
+            } else if(e.target.hash == "#其他耗材l") {
+                document.querySelector("#PLA").hidden = true;
+                document.querySelector("#PCL").hidden = true;
+                document.querySelector("#ABS").hidden = true;
+                document.querySelector("#TPU").hidden = true;
+                document.querySelector("#光敏树脂").hidden = true;
+                document.querySelector("#其他耗材").hidden = false;
+
+            } else {
+                document.querySelector("#PLA").hidden = false;
+                document.querySelector("#PCL").hidden = false;
+                document.querySelector("#ABS").hidden = false;
+                document.querySelector("#TPU").hidden = false;
+                document.querySelector("#光敏树脂").hidden = false;
+                document.querySelector("#其他耗材").hidden = false;
+            }
+        }
+		function lo2(event){
+			window.location = "acDetail.html#" + event.target.attributes.index.value;
+		}
+        $.get("http://api.tronhoo3d.com/accessories",function (res) {
+            var data = res.data;
+            var tData = data[2]; 
+            var two = new Vue({
+                        el: "#two",
+                        data: tData,
+                        methods: {
+                            detail: function(event){
+                                window.location = "acDetail.html#" + event.target.id;
+                            }
+                        }
+                    });
+            var twol = new Vue({
+                        el: "#twol",
+                        data: tData
+                    });
+        })
+         changefix();
+        window.onresize = function() {
+            changefix();
+        }
+        function changefix() {
+            var width = document.body.clientWidth;
+            if (width < 768) {
+                document.querySelector("#list").style.position = "absolute";
+            }
+        }
+    </script>
 </body>
 </html>

@@ -266,8 +266,7 @@ input.search-form:hover {
   border-radius: 0;
   margin-bottom: 0;
   background: #151515;
-  padding: 15px 0;
-  padding-bottom: 0;
+  padding: 10px 0 10px 0;
 }
 
  .navbar-nav{
@@ -275,8 +274,7 @@ input.search-form:hover {
  }
 
 .navbar-nav>li{
-  margin-left: 35px;
-  padding-bottom: 28px;
+  margin-left: 20px;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -418,7 +416,7 @@ input.search-form:hover {
 }
 #main-slider .carousel .item .sliderImg {
   margin: 0 auto;
-  width: 95%;
+  width: 100%;
   max-width: 2800px;
   max-height:1000px;
 }

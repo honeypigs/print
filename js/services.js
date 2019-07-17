@@ -68,5 +68,60 @@ function show(event) {
 	}else {
 		event.target.nextElementSibling.className = "content";
 	}
-	
 }
+
+var list = document.querySelector("#list");
+list.onclick = function(e) {
+	console.log(e.target.hash)
+    if(e.target.hash == "#modelsl") {
+        document.querySelector("#models").hidden = false;
+        document.querySelector("#software").hidden = true;
+        document.querySelector("#files").hidden = true;
+        document.querySelector("#ques").hidden = true;
+        document.querySelector("#news").hidden = true;
+    } else if(e.target.hash == "#softwarel") {
+        document.querySelector("#models").hidden = true;
+        document.querySelector("#software").hidden = false;
+        document.querySelector("#files").hidden = true;
+        document.querySelector("#ques").hidden = true;
+        document.querySelector("#news").hidden = true;
+    } else if(e.target.hash == "#filesl") {
+        document.querySelector("#models").hidden = true;
+        document.querySelector("#software").hidden = true;
+        document.querySelector("#files").hidden = false;
+        document.querySelector("#ques").hidden = true;
+        document.querySelector("#news").hidden = true;
+    } else if(e.target.hash == "#quesl") {
+        document.querySelector("#models").hidden = true;
+        document.querySelector("#software").hidden = true;
+        document.querySelector("#files").hidden = true;
+        document.querySelector("#ques").hidden = false;
+        document.querySelector("#news").hidden = true;
+    } else if(e.target.hash=="newsl"){
+        document.querySelector("#models").hidden = true;
+        document.querySelector("#software").hidden = true;
+        document.querySelector("#files").hidden = true;
+        document.querySelector("#ques").hidden = true;
+        document.querySelector("#news").hidden = false;
+    } else{
+    	document.querySelector("#models").hidden = false;
+        document.querySelector("#software").hidden = false;
+        document.querySelector("#files").hidden = false;
+        document.querySelector("#ques").hidden = false;
+        document.querySelector("#news").hidden = false;
+    }
+}
+
+changefix();
+window.onresize = function() {
+    changefix();
+}
+function changefix() {
+    var width = document.body.clientWidth;
+    if (width < 768) {
+        document.querySelector("#list").style.position = "absolute";
+    }
+}
+
+
+

@@ -38,3 +38,11 @@
 .contents p{
 	font-weight: normal;
 }
+
+img {
+	width: 100% !important;
+}
+
+.contactImg {
+	width: 100px !important;
+}
