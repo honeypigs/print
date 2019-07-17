@@ -57,7 +57,17 @@ $.get("http://api.tronhoo3d.com/information",function (res) {
 	var nData = res;
 	var news = new Vue({
 		el: "#news",
-		data: nData
+		data: nData,
+		methods: {
+            jump: function() {
+               if(window.location.hash != ""){
+                    window.location.href = window.location.hash;
+                }
+            }
+        },
+        mounted: function(){
+            this.jump();
+        }
 	})
 })
 
