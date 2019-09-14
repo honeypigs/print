@@ -231,7 +231,7 @@
     <script src="js/wow.min.js"></script>
     <script src="js/vue.js"></script>
     <script type="text/javascript">
-        var url = "http://api.tronhoo3d.com/accessories/" + window.location.hash[1];
+        var url = "http://api.tronhoo3d.com/accessories/" + window.location.hash.substr(1);
         $.get(url,function (res) {
             var data = res.data;
             console.log(data);
