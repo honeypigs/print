@@ -24,10 +24,34 @@ function padLeftZero (str) {
 
 $.get("http://api.tronhoo3d.com/models",function (res) {
 	var mData = res;
+    console.log(mData);
 	var model = new Vue({
 		el: "#models",
-		data: mData
-	})
+		data: mData,
+        mounted: function() {
+            var filelist = [];
+            var id = [];
+            for(var i = 0;i < mData.data.length;i++) {
+                var path = mData.data[i].link;
+                var name = mData.data[i].filename + mData.data[i].filetype;
+                var link = [{ path: path, name: name}];
+                id[i] = "#model" + mData.data[i].id;
+                filelist[i] = link;
+            }
+            for(var i = 0; i < filelist.length;i++) {
+                var everRender = evercad.render3d(id[i], filelist[i],{
+                background: '#f0f0f0',     // 背景色
+                 showToolbar: false,        // 是否显示 toolbar
+                 logo: {
+                   right: '40px',           // 距右边 40px
+                   bottom: '100px',         // 距底边 100px
+                   width: '40px',           // logo 宽度，小于 40px 为 40px
+                   src: 'https://img.com/logo.jpg'
+                 }
+            })
+            }
+        }
+	})    
 })
 
 $.get("http://api.tronhoo3d.com/software",function (res) {

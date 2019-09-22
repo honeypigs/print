@@ -181,10 +181,11 @@
                     <h2>{{message}}</h2>
                     <hr>
                 </div>
-                <div class="col-xs-6 col-md-3"  v-for="site in data">
-                    <a :href="site.link" class="thumbnail" >
-                        <img :src="site.img" alt="...">
+                <div class="col-xs-6 col-md-3" v-for="site in data">
+                    <a :href="site.link" class="thumbnail" style="border:0px;font-size: 12px;">
+                        点击下载模型文件
                     </a>
+                    <div :id="'model' + site.id" ></div>
                 </div>
             </div>
             <div class="container" id="software" v-cloak>
@@ -317,6 +318,7 @@
     <script src="js/main.js"></script>
     <script src="js/wow.min.js"></script>
     <script src="js/vue.js"></script>
+    <script src='https://evercraft.co/lib/tronhoo3d/everxyz-1.0.5.js'></script>
     <script src="js/services.js"></script>
 </body>
 </html>
