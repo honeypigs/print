@@ -24,7 +24,6 @@ function padLeftZero (str) {
 
 $.get("http://api.tronhoo3d.com/models",function (res) {
 	var mData = res;
-    console.log(mData);
 	var model = new Vue({
 		el: "#models",
 		data: mData,
@@ -56,6 +55,7 @@ $.get("http://api.tronhoo3d.com/models",function (res) {
 
 $.get("http://api.tronhoo3d.com/software",function (res) {
 	var sData = res;
+    console.log(sData);
 	var soft = new Vue({
 		el: "#software",
 		data: sData

@@ -194,7 +194,7 @@
                     <hr>
                 </div>
                 <div class="list-group" v-for="site in data">
-                    <a :href="site.link" class="list-group-item" v-cloak>{{site.filename}}</a>
+                    <p class="list-group-item" style="width: 70%;float: left;margin-bottom: 5px;" v-cloak>{{site.filename}}</p><a class="list-group-item" style="border-left: none;width:30%;float: right;margin-bottom: 5px;cursor:pointer;" :href="site.link" v-cloak>创建时间：2019-09-30<li style="list-style: none;float: right;">点击下载</li></a>
                 </div>
             </div>
             <div class="container" id="files" v-cloak>
