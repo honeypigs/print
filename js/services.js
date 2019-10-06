@@ -156,7 +156,7 @@ list.onclick = function(e) {
         document.querySelector("#files").hidden = true;
         document.querySelector("#ques").hidden = false;
         document.querySelector("#news").hidden = true;
-    } else if(e.target.hash=="newsl"){
+    } else if(e.target.hash=="#newsl"){
         document.querySelector("#models").hidden = true;
         document.querySelector("#software").hidden = true;
         document.querySelector("#files").hidden = true;
