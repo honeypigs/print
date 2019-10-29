@@ -16,7 +16,6 @@
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/project.css">
     <link rel="stylesheet" type="text/css" href="css/service.css">
     
     <!--[if lt IE 9]>
@@ -184,13 +183,12 @@
                     <hr>
                 </div>
                 <div class="col-xs-6 col-md-3" v-for="site in data">
-                    <a href="javascript:void(0)" :id="site.filename" :type="site.filetype" onclick="showmodel(event)" class="thumbnail" style="border:0px;font-size: 12px;margin:0px;float:left;cursor:pointer;">
-                        点击查看3D模型
-                    </a>
-                    <a :href="site.link" class="thumbnail" style="border:0px;font-size: 12px;margin:0px;float:right;">
-                        点击下载模型文件
-                    </a>
-
+	              <a href="javascript:void(0)" :id="site.filename" :type="site.filetype" onclick="showmodel(event)" class="thumbnail" style="border:0px;font-size: 12px;margin:0px;float:left;cursor:pointer;">
+	                   点击查看3D模型
+	              </a>
+	              <a :href="site.link" class="thumbnail" style="border:0px;font-size: 12px;margin:0px;float:right;">
+	                   点击下载模型文件
+	              </a>
                    <div :id="'model' + site.id">
                    </div>
                    <img :src="site.img">

@@ -600,6 +600,8 @@ input.search-form:hover {
 
 .recent-work-wrap {
   position: relative;
+  border:4px solid #333333; 
+  border-radius : 5px;
 }
 
 .recent-work-wrap img{
@@ -676,7 +678,6 @@ input.search-form:hover {
 
 .services-wrap h3 {
   font-size: 20px;
-  margin: 10px 0;
 }
 
 .services-wrap .pull-left {
