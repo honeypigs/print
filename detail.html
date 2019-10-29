@@ -31,12 +31,6 @@
         <nav class="navbar navbar-inverse" role="banner">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
                     <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
                 </div>
 				
@@ -93,7 +87,7 @@
                 </div>
             </div><!--/.container-->
         </nav><!--/nav-->
-	</header><!--/header-->
+	</header><!--/顶部导航-->
 
     <section id="project">
         <div class="container" id="detail">
@@ -146,7 +140,7 @@
             <div v-html="detail"></div>
         </div>
 				
-    </section>
+    </section><!-- 产品细节主要内容 -->
 
 
         <section id="bottom">
@@ -203,7 +197,7 @@
                 <img class="contactImg" src="images/contact1.png" alt="微信公众号">
             </div>
         </div>
-    </section><!--/#bottom-->
+    </section><!--/#底部导航-->
 
     <footer id="footer" class="midnight-blue">
         <div class="container">
@@ -221,7 +215,7 @@
                 </div>
             </div>
         </div>
-    </footer><!--/#footer-->
+    </footer><!--/#底部-->
     
 
     <script src="js/jquery.js"></script>
@@ -240,7 +234,7 @@
                 el: "#detail",
                 data: data
             })
-        })
+        })//通过url获取产品id并通过id获取产品细节相关数据
     </script>
 </body>
 </html>

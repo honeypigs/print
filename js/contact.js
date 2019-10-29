@@ -16,7 +16,7 @@ function formatDate (date, fmt) {
 		}
 	}
 	return fmt;
-};
+};//添加时间方法
 
 function padLeftZero (str) {
 	return ('00' + str).substr(str.length);
@@ -45,7 +45,7 @@ Vue.component('commentTextarea',{
 			this.commentText = "";
 		}
 	}
-});
+});//html模板
 
 
 Vue.component('commemt-content',{
@@ -74,7 +74,7 @@ Vue.component('commemt-content',{
 			this.$emit("change",name,index);
 		}
 	}
-});
+});//回复html模板
 
 
 $.get("http://api.tronhoo3d.com/messages",function(res){

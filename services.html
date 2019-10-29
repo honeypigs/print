@@ -31,12 +31,6 @@
         <nav class="navbar navbar-inverse" role="banner">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
                     <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
                 </div>
                 
@@ -93,7 +87,7 @@
                 </div>
             </div><!--/.container-->
         </nav><!--/nav-->
-    </header><!--/header-->
+    </header><!--/顶部导航-->
 
     <section id="project">
         <div class="col-md-2 col-xs-11 col-sm-2 col-lg-2" style="visibility: hidden;z-index: 500">
@@ -135,7 +129,7 @@
                     </a>
                 </li>
             </ul>
-        </div>
+        </div><!-- 左侧导航栏占位 -->
         <div class="col-md-2 col-xs-11 col-sm-2 col-lg-2" id="list" style="position: fixed;z-index: 1000">
             <ul id="main-nav" class="nav nav-tabs nav-stacked">
                 <li class="active" style="cursor:pointer;">
@@ -175,7 +169,8 @@
                     </a>
                 </li>
             </ul>
-        </div>
+        </div><!-- 左侧导航栏实际代码 -->
+
         <div class="col-md-10 col-sm-10 col-xs-12 col-lg-10">
             <div class="container" id="models" v-cloak>
                 <div class="left">
@@ -193,7 +188,7 @@
                    </div>
                    <img :src="site.img">
                 </div>
-            </div>
+            </div><!-- 3d模型代码 -->
             <div class="container" id="software" v-cloak>
                 <div class="left">
                     <h2>软件下载</h2>
@@ -202,7 +197,7 @@
                 <div class="list-group" v-for="site in data">
                     <p class="list-group-item" style="width: 70%;float: left;margin-bottom: 5px;" v-cloak>{{site.filename}}</p><a class="list-group-item" style="border-left: none;width:30%;float: right;margin-bottom: 5px;cursor:pointer;" :href="site.link" v-cloak>创建时间：{{formatDate(new Date(site.created_at*1000),"yyyy-M-d h:m")}}<li style="list-style: none;float: right;">点击下载</li></a>
                 </div>
-            </div>
+            </div><!-- 软件下载代码 -->
             <div class="container" id="files" v-cloak>
                 <div class="left">
                     <h2>文件下载</h2>
@@ -211,7 +206,7 @@
                 <div class="list-group" v-for="site in data">
                     <a href="site.link" class="list-group-item" v-cloak>{{site.filename}}</a>
                 </div>
-            </div>
+            </div><!-- 文件下载代码 -->
             <div class="container" id="ques" v-cloak>
                 <div class="left">
                     <h2>常见问题</h2>
@@ -224,7 +219,7 @@
                     </div>
                     
                 </div>
-            </div>
+            </div><!-- 常见问题代码 -->
             <div class="container" id="news" v-cloak>
                 <div class="left">
                     <h2>3D打印机资讯</h2>
@@ -237,7 +232,7 @@
                     </div>
                     
                 </div>
-            </div>     
+            </div> <!-- 新闻资讯代码 -->    
         </div> 
         
                 
@@ -297,7 +292,7 @@
                 <img class="contactImg" src="images/contact1.png" alt="微信公众号">
             </div>
         </div>
-    </section><!--/#bottom-->
+    </section><!--/#底部导航-->
 
     <footer id="footer" class="midnight-blue">
         <div class="container">
@@ -315,7 +310,7 @@
                 </div>
             </div>
         </div>
-    </footer><!--/#footer-->
+    </footer><!--/#底部-->
 
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -324,7 +319,7 @@
     <script src="js/main.js"></script>
     <script src="js/wow.min.js"></script>
     <script src="js/vue.js"></script>
-    <script src='https://evercraft.co/lib/tronhoo3d/everxyz-1.0.5.js'></script>
-    <script src="js/services.js"></script>
+    <script src='https://evercraft.co/lib/tronhoo3d/everxyz-1.0.5.js'></script><!-- 该页面调用的网页3d模型展示方法 -->
+    <script src="js/services.js"></script><!-- 该页面js文件 -->
 </body>
 </html>

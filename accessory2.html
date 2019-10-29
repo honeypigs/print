@@ -96,7 +96,7 @@
 	</header><!--/header-->
 
     <section id="project">
-        <div class="col-md-2 col-xs-11 col-sm-2 col-lg-2" style="height:350px;"></div>
+        <div class="col-md-2 col-xs-11 col-sm-2 col-lg-2" style="height:350px;"></div><!-- 左侧导航占位 -->
         <div class="col-md-2 col-xs-11 col-sm-2 col-lg-2" id="list" style="position: fixed;z-index: 1000">
             <ul id="twol" class="nav nav-tabs nav-stacked" v-cloak>
                 <li class="active" style="cursor:pointer;">
@@ -116,7 +116,8 @@
                     </ul>
                 </li>
             </ul>
-        </div>  
+        </div>  <!-- 左侧导航栏实际代码 -->
+        
         <div class="col-md-10 col-sm-10 col-xs-12 col-lg-10" id = "two">
             <div class="col-md-12 col-sm-12"  v-for="model in list" v-bind:id="model[0].item_type">
                 <div class="left">
@@ -139,7 +140,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div><!-- 右侧配件内容代码 -->
 				
     </section>
 
@@ -197,7 +198,7 @@
                 <img class="contactImg" src="images/contact1.png" alt="微信公众号">
             </div>
         </div>
-    </section><!--/#bottom-->
+    </section><!--/#底部导航-->
 
     <footer id="footer" class="midnight-blue">
         <div class="container">
@@ -215,7 +216,7 @@
                 </div>
             </div>
         </div>
-    </footer><!--/#footer-->
+    </footer><!--/#底部-->
     
 
     <script src="js/jquery.js"></script>
@@ -280,10 +281,12 @@
                 document.querySelector("#光敏树脂").hidden = false;
                 document.querySelector("#其他耗材").hidden = false;
             }
-        }
+        }//点击导航栏改变右侧页面内容
+
 		function lo2(event){
 			window.location = "acDetail.html#" + event.target.attributes.index.value;
-		}
+		}//导航栏部分根据id跳转到产品详情页面
+
         $.get("http://api.tronhoo3d.com/accessories",function (res) {
             var data = res.data;
             var tData = data[2];
@@ -309,17 +312,7 @@
                         el: "#twol",
                         data: tData
                     });
-        })
-         changefix();
-        window.onresize = function() {
-            changefix();
-        }
-        function changefix() {
-            var width = document.body.clientWidth;
-            if (width < 768) {
-                document.querySelector("#list").style.position = "absolute";
-            }
-        }
+        })//获取配件数据并通过vuejs渲染，并定义点击产品图片跳转到详细信息
     </script>
 </body>
 </html>

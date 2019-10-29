@@ -31,12 +31,6 @@
         <nav class="navbar navbar-inverse" role="banner">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
                     <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
                 </div>
 				
@@ -93,7 +87,7 @@
                 </div>
             </div><!--/.container-->
         </nav><!--/nav-->
-	</header><!--/header-->
+	</header><!--/顶部导航-->
 
     <section id="project">
         <div class="col-md-2 col-xs-11 col-sm-2 col-lg-2" style="visibility: hidden;z-index: 500">
@@ -133,7 +127,7 @@
                     </a>
                 </li>
             </ul>
-        </div>
+        </div><!-- 左侧边栏占位用 -->
         <div class="col-md-2 col-xs-11 col-sm-2 col-lg-2" id="list" style="position: fixed;z-index: 1000">
             <ul id="main-nav" class="nav nav-tabs nav-stacked">
                 <li class="active" style="cursor:pointer;">
@@ -183,7 +177,7 @@
                     </ul>
                 </li>
             </ul>
-        </div>
+        </div><!-- 左侧边栏代码 使用了vuejs-->
         <div class="col-md-10 col-sm-10 col-xs-12 col-lg-10">
         	<div class="col-md-12 col-sm-12 col-xs-12" id="diy">
         		<div class="left">
@@ -205,7 +199,8 @@
                         </div>
                     </div>
                 </div>
-        	</div>
+        	</div><!-- DIY桌面级3D打印机代码 -->
+
         	<div class="col-md-12 col-sm-12 col-xs-12" id="edu">
     	    	<div class="left">
     				<h2 v-cloak>{{catalog}}</h2>
@@ -226,7 +221,8 @@
                         </div>
                     </div>
                 </div>
-    		</div>
+    		</div><!-- 教育类3D打印机代码 -->
+
     		<div class="col-md-12 col-sm-12 col-xs-12" id="ind">
     			<div class="left">
     				<h2 v-cloak>{{catalog}}</h2>
@@ -247,7 +243,8 @@
                         </div>
                     </div>
                 </div>
-    		</div>
+    		</div><!-- 工业级3D打印机代码 -->
+
             <div class="col-md-12 col-sm-12 col-xs-12" id="stm">
                 <div class="left">
                     <h2 v-cloak>{{catalog}}</h2>
@@ -268,9 +265,10 @@
                         </div>
                     </div>
                 </div>
-            </div>   
+            </div> <!-- steam教育方案代码 -->  
         </div>
-    </section>
+    </section> <!-- 主要内容 -->
+
     <section id="bottom">
         <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
             <div class="row">
@@ -325,7 +323,7 @@
                 <img class="contactImg" src="images/contact1.png" alt="微信公众号">
             </div>
         </div>
-    </section><!--/#bottom-->
+    </section><!--/#底部导航-->
 
     <footer id="footer" class="midnight-blue">
         <div class="container">
@@ -343,7 +341,7 @@
                 </div>
             </div>
         </div>
-    </footer><!--/#footer-->
+    </footer><!--/#底部-->
     
 
     <script src="js/jquery.js"></script>
@@ -382,11 +380,13 @@
                 document.querySelector("#ind").hidden = false;
                 document.querySelector("#stm").hidden = false;
             }
-        }
+        } //点击左侧导航栏，改变页面显示内容
 		function lo(event){
 			window.location = "detail.html#" + event.target.attributes.index.value;
-		}
+		} //点击跳转到相应id的商品的详细页面方法
+
         window.onload = function () {
+            //使用get方法获取3d打印机数据并通过vuejs模板渲染
             $.get("http://api.tronhoo3d.com/products",function (res) {
                 var data = res.data;
                 var diyData = data[1], eduData = data[2], indData = data[3],stmData = data[4]; 
@@ -443,16 +443,6 @@
                     data: stmData
                 });
             })
-        }
-        changefix();
-        window.onresize = function() {
-            changefix();
-        }
-        function changefix() {
-            var width = document.body.clientWidth;
-            if (width < 768) {
-                document.querySelector("#list").style.position = "absolute";
-            }
         }
     </script>
 </body>

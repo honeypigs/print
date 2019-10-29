@@ -16,45 +16,19 @@ function formatDate (date, fmt) {
 		}
 	}
 	return fmt;
-};
+}; //显示时间方法
 
 function padLeftZero (str) {
 	return ('00' + str).substr(str.length);
-};
-
+}; 
+ 
 $.get("http://api.tronhoo3d.com/models",function (res) {
 	var mData = res;
 	var model = new Vue({
 		el: "#models",
 		data: mData,
-//        	mounted: function() {
-//        		
-//        	
-//            var filelist = [];
-//            var id = [];
-//            for(var i = 0;i < mData.data.length;i++) {
-//                var path = mData.data[i].link;
-//                var name = mData.data[i].filename + mData.data[i].filetype;
-//                var link = [{ path: path, name: name}];
-//                id[i] = "#model" + mData.data[i].id;
-//                filelist[i] = link;
-//            }
-//            for(var i = 0; i < filelist.length;i++) {
-//                var everRender = evercad.render3d(id[i], filelist[i],{
-//				background: '#f0f0f0',     // 背景色
-//			     showToolbar: false,        // 是否显示 toolbar
-//			     logo: {
-//			       right: '40px',           // 距右边 40px
-//			       bottom: '100px',         // 距底边 100px
-//			       width: '40px',           // logo 宽度，小于 40px 为 40px
-//			       src: 'https://img.com/logo.jpg'
-//			     }
-//	     	})
-//            }
-//			
-//        }
 	})    
-})
+}) //获取模型数据并渲染
 
 
 $.get("http://api.tronhoo3d.com/software",function (res) {
@@ -63,7 +37,7 @@ $.get("http://api.tronhoo3d.com/software",function (res) {
 		el: "#software",
 		data: sData
 	})
-})
+})//获取软件数据并渲染
 
 $.get("http://api.tronhoo3d.com/files",function (res) {
 	var fData = res;
@@ -71,7 +45,7 @@ $.get("http://api.tronhoo3d.com/files",function (res) {
 		el: "#files",
 		data: fData
 	})
-})
+})//获取文件数据并渲染
 
 $.get("http://api.tronhoo3d.com/questions",function (res) {
 	var qData = res;
@@ -79,7 +53,8 @@ $.get("http://api.tronhoo3d.com/questions",function (res) {
 		el: "#ques",
 		data: qData
 	})
-})
+})//获取问题数据并渲染
+
 $.get("http://api.tronhoo3d.com/information",function (res) {
 	var nData = res;
 	var news = new Vue({
@@ -96,7 +71,7 @@ $.get("http://api.tronhoo3d.com/information",function (res) {
             this.jump();
         }
 	})
-})
+})//获取资讯数据并渲染
 
 
 function show(event) {
@@ -105,7 +80,7 @@ function show(event) {
 	}else {
 		event.target.nextElementSibling.className = "content";
 	}
-}
+}//显示问题和资讯的隐藏内容
 
 function showmodel(event) {
 	var e = event.target;
@@ -128,7 +103,7 @@ function showmodel(event) {
      e.nextElementSibling.nextElementSibling.nextElementSibling.style.display = "none";
      e.parentNode.style.height = height + "px";
      e.nextElementSibling.nextElementSibling.style.marginTop = margin + "px";
-}
+} //显示3d模型并渲染
 
 var list = document.querySelector("#list");
 list.onclick = function(e) {
@@ -169,18 +144,6 @@ list.onclick = function(e) {
         document.querySelector("#ques").hidden = false;
         document.querySelector("#news").hidden = false;
     }
-}
-
-changefix();
-window.onresize = function() {
-    changefix();
-}
-function changefix() {
-    var width = document.body.clientWidth;
-    if (width < 768) {
-        document.querySelector("#list").style.position = "absolute";
-    }
-}
-
+} //点击左侧列表改变右侧内容
 
 

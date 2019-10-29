@@ -91,7 +91,7 @@
                 </div>
             </div><!--/.container-->
         </nav><!--/nav-->
-	</header><!--/header-->
+	</header><!--/顶部导航-->
 
     <section id="about-us">
         <div class="container">
@@ -112,9 +112,9 @@
             <div id="comment">
                 <commemt-content v-bind:comment="comment" v-on:change="changCommmer"></commemt-content>
                 <comment-textarea v-bind:type="type" v-bind:name="oldComment" v-on:submit="addComment" v-on:canel="canelCommit"></comment-textarea>
-            </div>
+            </div><!-- 留言系统使用了vuejs模板-->
 		</div><!--/.container-->
-    </section><!--/about-us-->
+    </section>
 
         <section id="bottom">
         <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
@@ -170,7 +170,7 @@
                 <img class="contactImg" src="images/contact1.png" alt="微信公众号">
             </div>
         </div>
-    </section><!--/#bottom-->
+    </section><!--/#底部导航-->
 
     <footer id="footer" class="midnight-blue">
         <div class="container">
@@ -188,7 +188,7 @@
                 </div>
             </div>
         </div>
-    </footer><!--/#footer-->
+    </footer><!--/#底部-->
     
 
     <script src="js/jquery.js"></script>
@@ -198,6 +198,6 @@
     <script src="js/main.js"></script>
     <script src="js/wow.min.js"></script>
     <script src="js/vue.js"></script>
-    <script src="js/contact.js"></script>
+    <script src="js/contact.js"></script><!--/该页面js代码-->
 </body>
 </html>
